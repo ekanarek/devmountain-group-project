@@ -1,42 +1,306 @@
-.s-icon {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 37.2px;
-    height: 48.3px;
-}
-.ync-icon {
-    width: 87.2px;
+.synclogo1Icon {
+    width: 130px;
     position: relative;
-    height: 37.9px;
+    height: 61px;
+    overflow: hidden;
+    flex-shrink: 0;
 }
-.ync-wrapper {
-    position: absolute;
-    top: 22.49px;
-    left: 41px;
-    width: 88.1px;
-    height: 38.3px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-.s-parent {
-    width: 129.1px;
-    position: relative;
-    height: 60.8px;
-}
-.vector-icon {
+.vectorIcon {
     width: 42px;
     position: relative;
     height: 42px;
 }
-.group-parent {
-    width: 100%;
-    position: relative;
+.synclogo1Parent {
+    position: absolute;
+    top: 52px;
+    left: 49px;
+    width: 1341px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+.createAMood {
+    flex: 1;
+    position: relative;
+}
+.createAMoodWrapper {
+    flex: 1;
+    border-bottom: 1px solid #ee28ff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 0px 24px;
+}
+.myMoodsWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 0px 24px;
+}
+.frameParent {
+    position: absolute;
+    top: 187px;
+    left: 178px;
+    border-bottom: 1px solid #fff;
+    box-sizing: border-box;
+    width: 1061px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.weHaveJust {
+    align-self: stretch;
+    position: relative;
+    line-height: 125%;
+    white-space: pre-wrap;
+}
+.weHaveJustThePlaylistToFWrapper {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.mood {
+    width: 184px;
+    position: relative;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #d9d9d9;
+    text-align: right;
+    display: inline-block;
+    height: 23px;
+    flex-shrink: 0;
+}
+.step23Parent {
+    align-self: stretch;
+    border-bottom: 1px solid #4c4c4c;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 0px;
+    font-size: 16px;
+}
+.frameContainer {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 24px;
+}
+.selectYourEnergy {
+    flex: 1;
+    position: relative;
+    line-height: 125%;
+}
+.selectYourEnergyLevelWrapper {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 12px 0px 0px;
+}
+.frameChild {
+    align-self: stretch;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    height: 24px;
+    flex-shrink: 0;
+}
+.groupWrapper {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 20px;
+}
+.notAtAlll {
+    position: relative;
+}
+.notAtAlllParent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.frameParent3 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 24px 0px;
+    gap: 12px;
+    text-align: center;
+    font-size: 16px;
+}
+.just {
+    margin: 0;
+}
+.frameParent4 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 37px;
+}
+.frameParent1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 24px 0px 0px;
+    gap: 43px;
+}
+.emojiLoudlyCryingFace {
+    width: 23.7px;
+    position: relative;
+    height: 24px;
+}
+.emojiLoudlyCryingFaceWrapper {
+    flex: 1;
+    border-radius: 4px;
+    border: 1px solid #ee28ff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+}
+.emojiWorriedFace {
+    width: 24.9px;
+    position: relative;
+    height: 24px;
+}
+.emojiWorriedFaceWrapper {
+    flex: 1;
+    border-radius: 4px;
+    border: 1px solid #ee28ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+}
+.emojiGrinningFace {
+    width: 25px;
+    position: relative;
+    height: 24px;
+}
+.frameParent9 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 12px;
+    gap: 8px;
+}
+.low {
+    width: 63px;
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    flex-shrink: 0;
+}
+.backWrapper {
+    flex: 1;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    height: 47px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+}
+.nextWrapper {
+    flex: 1;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 47px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    box-sizing: border-box;
+    color: #000;
+}
+.frameParent10 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0px;
+    gap: 10px;
+}
+.frameWrapper1 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: center;
+    font-size: 14px;
+}
+.frameParent6 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px 0px 0px;
+    gap: 24px;
+}
+.frameDiv {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px 0px 0px;
+    gap: 70px;
+    font-size: 20px;
+}
+.frameGroup {
+    position: absolute;
+    top: 301px;
+    left: 178px;
+    width: 1061px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 32px;
+}
+.desktopStep2sliders {
+    width: 100%;
+    position: relative;
+    background-color: #000;
+    height: 1024px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 26px;
+    color: #fff;
+    font-family: Inter;
 }
 
