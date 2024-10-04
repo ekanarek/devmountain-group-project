@@ -1,0 +1,42 @@
+.s-icon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 37.2px;
+    height: 48.3px;
+}
+.ync-icon {
+    width: 87.2px;
+    position: relative;
+    height: 37.9px;
+}
+.ync-wrapper {
+    position: absolute;
+    top: 22.49px;
+    left: 41px;
+    width: 88.1px;
+    height: 38.3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.s-parent {
+    width: 129.1px;
+    position: relative;
+    height: 60.8px;
+}
+.vector-icon {
+    width: 42px;
+    position: relative;
+    height: 42px;
+}
+.group-parent {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
