@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';  
 import React from 'react';  
 import '/src/css/step2.css'; 
-import '/src/css/global.css'; 
+import '/src/index.css'; 
 import styles from '/src/css/step2.css';  
 
 const DesktopStep2sliders = () => {  
