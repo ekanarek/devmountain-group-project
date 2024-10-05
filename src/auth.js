@@ -1,85 +1,151 @@
-//code verifier
+/**
+ * This is an example of a basic node.js script that performs
+ * the Authorization Code oAuth2 flow to authenticate against
+ * the Spotify Accounts.
+ *
+ * For more information, read
+ * https://developer.spotify.com/documentation/web-api/tutorials/code-flow
+ */
+
+import express from "express";
+import request from "request";
+import crypto from "crypto";
+import cors from "cors";
+import querystring from "querystring";
+import cookieParser from "cookie-parser";
+
+var client_id = "1c49a3c0481a4557a67ef4362f260b61"; // your clientId
+var client_secret = "af0a172910484d478a528e93f0049d3c"; // Your secret
+var redirect_uri = "http://localhost:8888/callback"; // Your redirect uri
+
 const generateRandomString = (length) => {
-  const possible =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  const values = crypto.getRandomValues(new Uint8Array(length));
-  return values.reduce((acc, x) => acc + possible[x % possible.length], "");
+  return crypto.randomBytes(60).toString("hex").slice(0, length);
 };
 
-const codeVerifier = generateRandomString(64);
+var stateKey = "spotify_auth_state";
 
-//code challenge
-const sha256 = async (plain) => {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(plain);
-  return window.crypto.subtle.digest("SHA-256", data);
-};
+var app = express();
 
-const base64encode = (input) => {
-  return btoa(String.fromCharCode(...new Uint8Array(input)))
-    .replace(/=/g, "")
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_");
-};
+app
+  .use(express.static(__dirname + "/public"))
+  .use(cors())
+  .use(cookieParser());
 
-const hashed = await sha256(codeVerifier);
-const codeChallenge = base64encode(hashed);
+app.get("/login", function (req, res) {
+  var state = generateRandomString(16);
+  res.cookie(stateKey, state);
 
-//requesting user authorization
-const clientId = "1c49a3c0481a4557a67ef4362f260b61";
-const redirectUri = "http://localhost:8080";
+  // your application requests authorization
+  var scope = "user-read-private user-read-email";
+  res.redirect(
+    "https://accounts.spotify.com/authorize?" +
+      querystring.stringify({
+        response_type: "code",
+        client_id: client_id,
+        scope: scope,
+        redirect_uri: redirect_uri,
+        state: state,
+      })
+  );
+});
 
-const scope = "user-read-private user-read-email";
-const authUrl = new URL("https://accounts.spotify.com/authorize");
+app.get("/callback", function (req, res) {
+  // your application requests refresh and access tokens
+  // after checking the state parameter
 
-window.localStorage.setItem("code_verifier", codeVerifier);
+  var code = req.query.code || null;
+  var state = req.query.state || null;
+  var storedState = req.cookies ? req.cookies[stateKey] : null;
 
-const params = {
-  response_type: "code",
-  client_id: clientId,
-  scope,
-  code_challenge_method: "S256",
-  code_challenge: codeChallenge,
-  redirect_uri: redirectUri,
-};
+  if (state === null || state !== storedState) {
+    res.redirect(
+      "/#" +
+        querystring.stringify({
+          error: "state_mismatch",
+        })
+    );
+  } else {
+    res.clearCookie(stateKey);
+    var authOptions = {
+      url: "https://accounts.spotify.com/api/token",
+      form: {
+        code: code,
+        redirect_uri: redirect_uri,
+        grant_type: "authorization_code",
+      },
+      headers: {
+        "content-type": "application/x-www-form-urlencoded",
+        Authorization:
+          "Basic " +
+          new Buffer.from(client_id + ":" + client_secret).toString("base64"),
+      },
+      json: true,
+    };
 
-function authorize() {
-  authUrl.search = new URLSearchParams(params).toString();
-  window.location.href = authUrl.toString();
-}
+    request.post(authOptions, function (error, response, body) {
+      if (!error && response.statusCode === 200) {
+        var access_token = body.access_token,
+          refresh_token = body.refresh_token;
 
-function handleRedirect() {
-  let code = getCode();
-  getToken(code);
-  window.location.href = redirectUri;
-}
+        var options = {
+          url: "https://api.spotify.com/v1/me",
+          headers: { Authorization: "Bearer " + access_token },
+          json: true,
+        };
 
-//parse url to retrieve code param
-function getCode() {
-  const urlParams = new URLSearchParams(window.location.search);
-  let code = urlParams.get("code");
-  return code;
-}
+        // use the access token to access the Spotify Web API
+        request.get(options, function (error, response, body) {
+          console.log(body);
+        });
 
-const getToken = async (code) => {
-  let codeVerifier = localStorage.getItem("code_verifier");
+        // we can also pass the token to the browser to make requests from there
+        res.redirect(
+          "/#" +
+            querystring.stringify({
+              access_token: access_token,
+              refresh_token: refresh_token,
+            })
+        );
+      } else {
+        res.redirect(
+          "/#" +
+            querystring.stringify({
+              error: "invalid_token",
+            })
+        );
+      }
+    });
+  }
+});
 
-  const payload = {
-    method: "POST",
+app.get("/refresh_token", function (req, res) {
+  var refresh_token = req.query.refresh_token;
+  var authOptions = {
+    url: "https://accounts.spotify.com/api/token",
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
+      "content-type": "application/x-www-form-urlencoded",
+      Authorization:
+        "Basic " +
+        new Buffer.from(client_id + ":" + client_secret).toString("base64"),
     },
-    body: new URLSearchParams({
-      client_id: clientId,
-      grant_type: "authorization_code",
-      code,
-      redirect_uri: redirectUri,
-      code_verifier: codeVerifier,
-    }),
+    form: {
+      grant_type: "refresh_token",
+      refresh_token: refresh_token,
+    },
+    json: true,
   };
 
-  const body = await fetch(url, payload);
-  const response = await body.json();
+  request.post(authOptions, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+      var access_token = body.access_token,
+        refresh_token = body.refresh_token;
+      res.send({
+        access_token: access_token,
+        refresh_token: refresh_token,
+      });
+    }
+  });
+});
 
-  localStorage.setItem("access_token", response.access_token);
-};
+console.log("Listening on 8888");
+app.listen(8888);
