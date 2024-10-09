@@ -1,8 +1,11 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import { Sequelize, DataTypes } from 'sequelize';
 
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: 'database.sqlite',
+const sequelize = new Sequelize('moods_db', process.env.DB_USERNAME, process.env.DB_PASSWORD, {
+    host: 'localhost',
+    dialect: 'postgres',
     logging: false,
 });
 
