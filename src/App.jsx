@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Import necessary libraries and components  
 import React from 'react';  
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';  
@@ -20,3 +21,18 @@ const App = () => {
 };  
 
 export default App;
+=======
+import "./App.css";
+import LandingPage from "./pages/LandingPage";
+
+function App() {
+  return (
+    <>
+      <h1>Hello!</h1>
+      <LandingPage />
+    </>
+  );
+}
+
+export default App;
+>>>>>>> 61820587f06738ad575fad7b6fc72f5138475f81
