@@ -1,11 +1,12 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
-import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
     <>
-      <h1>Hello!</h1>
-      <LandingPage />
+      <h1>MoodMaestro</h1>
+
+      <Outlet />
     </>
   );
 }
