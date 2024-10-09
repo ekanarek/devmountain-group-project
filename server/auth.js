@@ -17,6 +17,9 @@ import cors from "cors";
 import querystring from "querystring";
 import cookieParser from "cookie-parser";
 
+// Import the User model
+import { User } from '../db/db.js';
+
 var client_id = process.env.SPOTIFY_CLIENT_ID; // your clientId
 var client_secret = process.env.SECRET; // Your secret
 var redirect_uri = "http://localhost:8888/callback"; // Your redirect uri
