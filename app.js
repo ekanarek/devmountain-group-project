@@ -2,8 +2,11 @@ import express from "express";
 import session from "express-session";
 import morgan from "morgan";
 import ViteExpress from "vite-express";
-import { request } from "express";
+import axios from "axios";
 import querystring from "node:querystring";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 const port = "8000";
@@ -52,11 +55,24 @@ app.get("/callback", function (req, res) {
     },
     json: true,
   };
-  request.post(authOptions, function (error, response, body) {
-    var access_token = body.access_token;
-    let uri = process.env.FRONTEND_URI || "http://localhost:8000/new-mood";
-    res.redirect(uri + "?access_token=" + access_token);
-  });
+  // request.post(authOptions, function (error, response, body) {
+  //   var access_token = body.access_token;
+  //   let uri = process.env.FRONTEND_URI || "http://localhost:8000/new-mood";
+  //   res.redirect(uri + "?access_token=" + access_token);
+  // });
+
+  axios
+    .post(authOptions)
+    .then((response) => {
+      const access_token = response.data.access_token;
+      const uri = process.env.FRONTEND_URI || "http://localhost:8000/new-mood";
+      res.redirect(`${uri}?access_token=${access_token}`);
+    })
+    .catch((error) => {
+      // Handle error here
+      console.error(error);
+      res.status(500).send("Error occurred during authentication.");
+    });
 });
 //
 
