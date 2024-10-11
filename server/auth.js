@@ -23,7 +23,7 @@ import { dirname } from 'path';
 import { User } from '../db/db.js';
 
 var client_id = process.env.SPOTIFY_CLIENT_ID; // your clientId
-var client_secret = process.env.SECRET; // Your secret
+var client_secret = process.env.SPOTIFY_CLIENT_SECRET; // Your secret
 var redirect_uri = "http://localhost:8888/callback"; // Your redirect uri
 
 const generateRandomString = (length) => {
