@@ -1,3 +1,3 @@
 export default function TestButton({ onClick }) {
-  return <button>Login to Spotify</button>;
+  return <button onClick={onClick}>Login to Spotify</button>;
 }

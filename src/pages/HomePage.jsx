@@ -1,16 +1,17 @@
 import TestButton from "../components/TestButton";
+import { useEffect } from "react";
 import axios from "axios";
 
 export default function HomePage() {
-  //THIS
-  const handleClick = async () => {
+  const handleLogin = async () => {
     const res = await axios.get("/login");
-    return;
+    console.log(res.data.access_token);
+    return res.data.access_token;
   };
 
   return (
     <>
-      <TestButton onClick={handleClick} />
+      <TestButton onClick={handleLogin} />
     </>
   );
 }

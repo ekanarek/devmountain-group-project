@@ -6,7 +6,6 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import axios from "axios";
 import "./index.css";
 import App from "./App.jsx";
 import HomePage from "./pages/HomePage.jsx";
