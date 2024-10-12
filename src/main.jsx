@@ -8,20 +8,25 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import App from "./App.jsx";
+import { TokenProvider } from "./contexts/TokenContext.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
+import ResultsPage from "./pages/ResultsPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<HomePage />} />
       <Route path="/new-mood" element={<LandingPage />} />
+      <Route path="/results" element={<ResultsPage />} />
     </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <TokenProvider>
+      <RouterProvider router={router} />
+    </TokenProvider>
   </React.StrictMode>
 );

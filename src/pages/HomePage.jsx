@@ -10,4 +10,7 @@ export default function HomePage() {
       <TestButton onClick={handleLogin} />
     </>
   );
+
+  // another option:
+  // return <a href="/login">Login to Spotify</a>;
 }
