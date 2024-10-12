@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function LandingPage() {
   //sample response
@@ -32,6 +33,38 @@ export default function LandingPage() {
   };
 
   const [serverData, setServerData] = useState(sampleUserObject);
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const accessToken = urlParams.get("access_token");
+
+  useEffect(() => {
+    const getProfile = async (accessToken) => {
+      const res = await axios.get("https://api.spotify.com/v1/me", {
+        headers: {
+          Authorization: "Bearer " + accessToken,
+        },
+      });
+      setServerData(res.data);
+    };
+
+    getProfile(accessToken);
+  }, []);
+
+  // useEffect(() => {
+  //   const fetchData = async () =>{
+  //     setLoading(true);
+  //     try {
+  //       const {data: response} = await axios.get('/stuff/to/fetch');
+  //       setData(response);
+  //     } catch (error) {
+  //       console.error(error.message);
+  //     }
+  //     setLoading(false);
+  //   }
+
+  //   fetchData();
+  // }, []);
 
   return (
     <>
