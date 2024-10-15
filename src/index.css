@@ -5,6 +5,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: rgb(114, 178, 152);
+  padding-left: 50px;
 }
 
 h1 {

@@ -63,6 +63,7 @@ export default function LandingPage() {
   //   instrumentalness: 0,
   //   happiness: 0,
   // };
+
   const handleFetch = () => {
     navigate("/results");
   };

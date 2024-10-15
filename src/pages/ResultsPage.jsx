@@ -9,10 +9,10 @@ export default function ResultsPage() {
   });
 
   const moodInput = {
-    genre: "country",
-    energy: 0,
-    instrumentalness: 0,
-    happiness: 0,
+    genre: "pop",
+    energy: 1.0,
+    instrumentalness: 0.0,
+    happiness: 0.0,
   };
 
   useEffect(() => {
