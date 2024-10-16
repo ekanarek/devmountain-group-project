@@ -1,27 +1,28 @@
-<<<<<<< HEAD
 import React from 'react';  
 import ReactDOM from 'react-dom/client';  
-import App from './App'; // Update the path if App is located elsewhere  
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';  
+import App from './App';  
+
+import LandingPage from './pages/LandingPage';  
+import Step2Page from './pages/Step2Page'; // Ensure this is correct  
 import './index.css'; // Optional: global styles  
 
-// Create a root for the app  
+// Define routes  
+const router = createBrowserRouter([  
+  {   
+    path: "/",   
+    element: <App />,   
+    children: [  
+      { path: "/", element: <LandingPage /> },  
+      { path: "Step2Page", element: <Step2Page /> } // Ensure Step2Page is imported correctly  
+    ]  
+  }  
+]);  
+
+// Create a root for the app and render the RouterProvider  
 const root = ReactDOM.createRoot(document.getElementById('root'));  
-
-// Render the App component  
 root.render(  
-    <React.StrictMode>  
-        <App />  
-    </React.StrictMode>  
+  <React.StrictMode>  
+    <RouterProvider router={router} />  
+  </React.StrictMode>  
 );
-=======
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
-import "./index.css";
-
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
->>>>>>> 61820587f06738ad575fad7b6fc72f5138475f81

@@ -1,38 +1,19 @@
-<<<<<<< HEAD
-// Import necessary libraries and components  
-import React from 'react';  
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';  
-import DesktopStep2sliders from './path/to/DesktopStep2sliders';  // Update path to your file  
-import OtherComponent from './path/to/OtherComponent';  // If you have other components  
+import React from "react";  
+import { Outlet } from 'react-router-dom'; // Import Outlet for nested routing  
+import './css/step2.css'; // Ensure this is the correct path for CSS  
 
-const App = () => {  
-    return (  
-        <Router>  
-            <div>  
-                <Routes>  
-                    {/* Define a route for your DesktopStep2sliders component */}  
-                    {/* <Route path="/" element={<OtherComponent />} />  Replace with your homepage component */}  
-                    <Route path="/step2" element={<DesktopStep2sliders />} />  
-                    {/* Add other routes as needed */}  
-                </Routes>  
-            </div>  
-        </Router>  
-    );  
-};  
+function App() {  
+  return (  
+    <div className="App">  
+   
+      <main>  
+        <Outlet /> {/* This Outlet will render the matched route's element */}  
+      </main>  
+      {/* <footer>  
+        <p>© 2023 Your Company Name</p>  
+      </footer>   */}
+    </div>  
+  );  
+}  
 
 export default App;
-=======
-import "./App.css";
-import LandingPage from "./pages/LandingPage";
-
-function App() {
-  return (
-    <>
-      <h1>Hello!</h1>
-      <LandingPage />
-    </>
-  );
-}
-
-export default App;
->>>>>>> 61820587f06738ad575fad7b6fc72f5138475f81

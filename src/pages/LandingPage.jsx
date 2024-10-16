@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate, Link } from 'react-router-dom';   
 
 export default function LandingPage() {
   //sample response
@@ -35,8 +36,16 @@ export default function LandingPage() {
 
   return (
     <>
+       <header className="App-header">  
+        <h1>Create Mood App</h1>  
+      </header>  
       <h3>You made it, {serverData.display_name}!</h3>
       <h4>Email: {serverData.email}</h4>
+      <div>
+      <p>  
+        <Link to="/Step2Page">Step2 </Link>  
+        </p>  
+      </div>
     </>
   );
 }

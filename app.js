@@ -1,25 +1,20 @@
-import express from 'express';
-import session from 'express-session';
-import morgan from 'morgan';
-import ViteExpress from 'vite-express';
-import React from 'react';  
-import step2 from './Step2';  
- 
-import 'src/css/step2.css'; // Optional: Import your main CSS styles  
-import DesktopStep2sliders from 'src/pages/Step2.jsx'; // Adjust the path as necessary  
+// File: src/App.jsx  
+import React from "react";  
+import { Outlet } from 'react-router-dom'; // Import Outlet for nested routing  
+import './css/step2.css'; // Ensure this is the correct path for CSS  
 
 function App() {  
   return (  
     <div className="App">  
-      <header className="App-header">  
+      {/* <header className="App-header">  
         <h1>Create Mood App</h1>  
-      </header>  
+      </header>   */}
       <main>  
-        <DesktopStep2sliders />  
+        <Outlet /> {/* This Outlet will render the matched route's element */}  
       </main>  
-      <footer>  
+      {/* <footer>  
         <p>© 2023 Your Company Name</p>  
-      </footer>  
+      </footer>   */}
     </div>  
   );  
 }  

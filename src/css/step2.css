@@ -1,3 +1,85 @@
+@media (max-width: 768px) {  
+    .desktopStep2sliders {  
+        flex-direction: column; /* Stacks items in a column on smaller screens */  
+          align-items: center; /*Center aligns the items   */
+     }  
+    .frameParent1, .frameParent6 {  
+        width: 90%; /* Ensure the frames take up most of the screen width */  
+         margin: 10px 0; /*Adds space between frames   */
+     }   
+    /*Additional responsive styles */  
+} 
+
+/* 
+.step21 {  
+    padding: 16px;  
+    background-color: #000;  
+    color: #fff;  
+}  
+
+.frameParent {  
+    display: flex;  
+    flex-direction: column;  
+}  
+
+.frameGroup {  
+    display: flex;  
+    justify-content: space-between;  
+    align-items: center;  
+    padding: 12px 0;  
+}  
+
+.vectorParent {  
+    display: flex;  
+    justify-content: center;  
+    gap: 16px;  
+}  
+
+.frameContainer {  
+    text-align: center;  
+}  
+
+.createAMood {  
+    font-size: 24px;  
+}  
+
+.frameDiv {  
+    margin: 16px 0;  
+}  
+
+.selectYourEnergy {  
+    font-size: 18px;  
+}  
+
+.frameParent3 {  
+    margin: 16px 0;  
+}  
+
+.emojiWorriedFaceWrapper {  
+    width: 24px;  
+    height: 24px;  
+}  
+
+.frameParent8 {  
+    display: flex;  
+    justify-content: space-between;  
+    margin-top: 20px;  
+}  
+
+.nextWrapper,  
+.backWrapper {  
+    background-color: rgba(255, 255, 255, 0.2);  
+    border-radius: 4px;  
+    padding: 10px 20px;  
+    cursor: pointer;  
+} */
+ */
+
+
+
+
+
+
 .synclogo1Icon {
     width: 130px;
     position: relative;
@@ -11,10 +93,14 @@
     height: 42px;
 }
 .synclogo1Parent {
-    position: absolute;
-    top: 52px;
-    left: 49px;
-    width: 1341px;
+    position: relative;
+    /* top: 52px; */
+    margin-top:4rem;
+    margin: 1.25rem 1.25rem; 
+    /* width: 100vw; */
+    padding: 1rem;
+    /* left: 49px;
+    width: 1341px; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -43,11 +129,11 @@
 }
 .frameParent {
     position: absolute;
-    top: 187px;
-    left: 178px;
+    top: 8rem;
+    /* left: 178px; */
     border-bottom: 1px solid #fff;
     box-sizing: border-box;
-    width: 1061px;
+    width: 100vw;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -110,9 +196,9 @@
 }
 .frameChild {
     align-self: stretch;
-    position: relative;
+    position: center;
     max-width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     height: 24px;
     flex-shrink: 0;
 }
@@ -126,6 +212,7 @@
 }
 .notAtAlll {
     position: relative;
+    font-size: 1rem;
 }
 .notAtAlllParent {
     align-self: stretch;
@@ -133,6 +220,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    
 }
 .frameParent3 {
     align-self: stretch;
@@ -276,10 +364,18 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    padding: 24px 0px 0px;
-    gap: 70px;
-    font-size: 20px;
+    padding: 1rem 0rem 0rem;
+    gap: 4rem;
+    font-size: 1.5rem;
+    flex-wrap: wrap;
+    width: 100vw;
 }
+
+.frameDiv>* {
+    flex: 0 0 100%;
+  }
+
+
 .frameGroup {
     position: absolute;
     top: 301px;
@@ -293,13 +389,14 @@
     font-size: 32px;
 }
 .desktopStep2sliders {
-    width: 100%;
+    width: 100vw;
     position: relative;
     background-color: #000;
-    height: 1024px;
-    overflow: hidden;
+    /* height: 1024px; */
+    /* overflow: hidden; */
     text-align: center;
-    font-size: 26px;
+    /* align-content: center; */
+    /* font-size: 26px; */
     color: #fff;
     font-family: Inter;
 }
