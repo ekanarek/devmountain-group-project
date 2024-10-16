@@ -4,7 +4,7 @@ import { useToken } from "../contexts/TokenContext";
 import SavePlaylistButton from "../components/SavePlaylistButton";
 
 export default function ResultsPage() {
-  const { token, setToken } = useToken();
+  const { token, setToken, userId, setUserId } = useToken();
   const [results, setResults] = useState({
     tracks: [{ id: 1, name: "Loading", artists: [{ name: "Please wait" }] }],
   });
@@ -34,34 +34,73 @@ export default function ResultsPage() {
         }
       );
       setResults(res.data);
+      console.log(res.data);
     };
     fetchRecs(moodInput);
   }, []);
 
-  const addPlaylist = async (playlist) => {
-    try {
-      const res = await axios.post(
-        "https://api.spotify.com/v1/users/{userIdHere}/playlists",
-        {
-          name: "New Playlist",
-          description: "New playlist description",
-          public: false,
+  useEffect(() => {
+    const getUserId = async () => {
+      const res = await axios.get("https://api.spotify.com/v1/me", {
+        headers: {
+          Authorization: "Bearer " + token,
         },
+      });
+      setUserId(res.data.id);
+    };
+    getUserId();
+  }, []);
+
+  let playlistId;
+
+  const handleNewPlaylist = () => {
+    const addPlaylist = async () => {
+      try {
+        const res = await axios.post(
+          `https://api.spotify.com/v1/users/${userId}/playlists`,
+          {
+            name: "New MoodMaestro Mood",
+            description: "description",
+            public: false,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + token,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        console.log(res.data);
+        playlistId = res.data.id;
+      } catch (error) {
+        console.error(
+          "Error creating playlist:",
+          error.response ? error.response.data : error.message
+        );
+      }
+    };
+
+    //GET URIS FROM RESULTS AND TURN THEM INTO AN ARRAY FOR THE FOLLOWING FUNCTION
+
+    const addSongs = async (songURIs) => {
+      const res = await axios.post(
+        `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
         {
           headers: {
             Authorization: "Bearer " + token,
             "Content-Type": "application/json",
           },
+          data: {
+            uris: [""],
+            position: 0,
+          },
         }
       );
-
-      console.log(res.data);
-    } catch (error) {
-      console.error(
-        "Error creating playlist:",
-        error.response ? error.response.data : error.message
-      );
-    }
+      if (res.data.snapshot_id) {
+        res.json({ success: true });
+      }
+    };
   };
 
   const songs = results.tracks.map(({ id, name, artists }) => {
@@ -79,7 +118,7 @@ export default function ResultsPage() {
   return (
     <>
       <ul>{songs}</ul>
-      <SavePlaylistButton onClick={addPlaylist} />
+      <SavePlaylistButton onClick={handleNewPlaylist} />
     </>
   );
 }
