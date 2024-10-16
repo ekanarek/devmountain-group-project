@@ -4,11 +4,13 @@ import { useToken } from "../contexts/TokenContext";
 import SavePlaylistButton from "../components/SavePlaylistButton";
 
 export default function ResultsPage() {
-  const { token, setToken, userId, setUserId } = useToken();
+  const { token, setToken } = useToken();
+  const [userId, setUserId] = useState("");
   const [results, setResults] = useState({
     tracks: [{ id: 1, name: "Loading", artists: [{ name: "Please wait" }] }],
   });
 
+  // THIS WILL BE USER INPUT
   const moodInput = {
     genre: "hip-hop",
     energy: 1.0,
@@ -33,11 +35,17 @@ export default function ResultsPage() {
           },
         }
       );
-      setResults(res.data);
       console.log(res.data);
+      setResults(res.data);
     };
     fetchRecs(moodInput);
   }, []);
+
+  // GETTING SONG URIS FOR PLAYLIST
+  let songURIs = [];
+  results.tracks.forEach((track) => {
+    songURIs.push(track.uri);
+  });
 
   useEffect(() => {
     const getUserId = async () => {
@@ -50,8 +58,6 @@ export default function ResultsPage() {
     };
     getUserId();
   }, []);
-
-  let playlistId;
 
   const handleNewPlaylist = () => {
     const addPlaylist = async () => {
@@ -71,8 +77,7 @@ export default function ResultsPage() {
           }
         );
 
-        console.log(res.data);
-        playlistId = res.data.id;
+        return res.data.id;
       } catch (error) {
         console.error(
           "Error creating playlist:",
@@ -81,9 +86,7 @@ export default function ResultsPage() {
       }
     };
 
-    //GET URIS FROM RESULTS AND TURN THEM INTO AN ARRAY FOR THE FOLLOWING FUNCTION
-
-    const addSongs = async (songURIs) => {
+    const addSongs = async (playlistId) => {
       const res = await axios.post(
         `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
         {
@@ -92,15 +95,17 @@ export default function ResultsPage() {
             "Content-Type": "application/json",
           },
           data: {
-            uris: [""],
-            position: 0,
+            uris: songURIs,
           },
         }
       );
       if (res.data.snapshot_id) {
-        res.json({ success: true });
+        alert("Success! Playlist added.");
       }
     };
+
+    let playlistId = addPlaylist();
+    addSongs(playlistId);
   };
 
   const songs = results.tracks.map(({ id, name, artists }) => {

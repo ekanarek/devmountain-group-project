@@ -4,15 +4,12 @@ const TokenCoxtext = createContext();
 
 export const TokenProvider = ({ children }) => {
   const [token, setToken] = useState("");
-  const [userId, setUserId] = useState("");
 
   return (
     <TokenCoxtext.Provider
       value={{
         token,
         setToken,
-        userId,
-        setUserId,
       }}
     >
       {children}
