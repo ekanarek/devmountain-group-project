@@ -19,9 +19,6 @@ import cookieParser from "cookie-parser";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-// Import the User model
-import { User } from '../db/db.js';
-
 var client_id = process.env.SPOTIFY_CLIENT_ID; // your clientId
 var client_secret = process.env.SPOTIFY_CLIENT_SECRET; // Your secret
 var redirect_uri = "http://localhost:8888/callback"; // Your redirect uri
@@ -105,52 +102,19 @@ app.get("/callback", function (req, res) {
         };
 
         // use the access token to access the Spotify Web API
-        request.get(options, async function (error, response, body) {
-          if (!error && response.statusCode === 200) {
-            console.log(body);
-
-            const spotifyId = body.id;
-            const displayName = body.display_name || null;
-
-            try {
-              // Find or create the user in the database
-              const [user, created] = await User.findOrCreate({
-                where: { spotify_id: spotifyId }, 
-                defaults: {
-                  display_name: displayName
-                }
-              });
-
-              if (created) {
-                console.log('New user created: ', user.toJSON());
-              } else {
-                console.log('User already exists: ', user.toJSON());
-              }
-
-              // we can also pass the token to the browser to make requests from there
-              res.redirect(
-                "/#" +
-                  querystring.stringify({
-                    access_token: access_token,
-                    refresh_token: refresh_token,
-                   })
-              );
-            } catch (dbError) {
-              console.error('Database error: ', dbError);
-              res.status(500).send('Internal Server Error');
-            }
-          } else {
-            console.error('Error fetching Spotify user profile: ', error);
-            res.status(500).send('Failed to fetch user profile');
-          }
+        request.get(options, function (error, response, body) {
+          console.log(body);
         });
 
+        // we can also pass the token to the browser to make requests from there
+        res.redirect(
+          "/#" +
+            querystring.stringify({
+              access_token: access_token,
+              refresh_token: refresh_token,
+            })
+        );
       } else {
-        // Debugging
-        console.error('Token request failed: ', error); 
-        console.error('Response: ', response); 
-        console.error('Body: ', body); 
-        
         res.redirect(
           "/#" +
             querystring.stringify({
@@ -193,4 +157,3 @@ app.get("/refresh_token", function (req, res) {
 
 console.log("Listening on 8888");
 app.listen(8888);
-
