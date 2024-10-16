@@ -16,9 +16,11 @@ import crypto from "crypto";
 import cors from "cors";
 import querystring from "querystring";
 import cookieParser from "cookie-parser";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 var client_id = process.env.SPOTIFY_CLIENT_ID; // your clientId
-var client_secret = process.env.SECRET; // Your secret
+var client_secret = process.env.SPOTIFY_CLIENT_SECRET; // Your secret
 var redirect_uri = "http://localhost:8888/callback"; // Your redirect uri
 
 const generateRandomString = (length) => {
@@ -28,6 +30,9 @@ const generateRandomString = (length) => {
 var stateKey = "spotify_auth_state";
 
 var app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 app
   .use(express.static(__dirname + "/public"))
@@ -152,4 +157,3 @@ app.get("/refresh_token", function (req, res) {
 
 console.log("Listening on 8888");
 app.listen(8888);
-
