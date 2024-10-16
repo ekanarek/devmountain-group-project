@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useToken } from "../contexts/TokenContext";
+import SavePlaylistButton from "../components/SavePlaylistButton";
 
 export default function ResultsPage() {
   const { token, setToken } = useToken();
@@ -9,7 +10,7 @@ export default function ResultsPage() {
   });
 
   const moodInput = {
-    genre: "pop",
+    genre: "hip-hop",
     energy: 1.0,
     instrumentalness: 0.0,
     happiness: 0.0,
@@ -37,6 +38,32 @@ export default function ResultsPage() {
     fetchRecs(moodInput);
   }, []);
 
+  const addPlaylist = async (playlist) => {
+    try {
+      const res = await axios.post(
+        "https://api.spotify.com/v1/users/{userIdHere}/playlists",
+        {
+          name: "New Playlist",
+          description: "New playlist description",
+          public: false,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log(res.data);
+    } catch (error) {
+      console.error(
+        "Error creating playlist:",
+        error.response ? error.response.data : error.message
+      );
+    }
+  };
+
   const songs = results.tracks.map(({ id, name, artists }) => {
     return (
       <li key={id}>
@@ -49,5 +76,10 @@ export default function ResultsPage() {
     );
   });
 
-  return <ul>{songs}</ul>;
+  return (
+    <>
+      <ul>{songs}</ul>
+      <SavePlaylistButton onClick={addPlaylist} />
+    </>
+  );
 }
