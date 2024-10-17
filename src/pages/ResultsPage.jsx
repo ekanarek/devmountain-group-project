@@ -12,10 +12,10 @@ export default function ResultsPage() {
 
   // THIS WILL BE USER INPUT
   const moodInput = {
-    genre: "hip-hop",
-    energy: 1.0,
-    instrumentalness: 0.0,
-    happiness: 0.0,
+    genre: "rock",
+    energy: 0.0,
+    instrumentalness: 0.5,
+    happiness: 1.0,
   };
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function ResultsPage() {
           `https://api.spotify.com/v1/users/${userId}/playlists`,
           {
             name: "New MoodMaestro Mood",
-            description: "description",
+            description: "description here",
             public: false,
           },
           {
@@ -77,7 +77,27 @@ export default function ResultsPage() {
           }
         );
 
-        return res.data.id;
+        if (res.data.id) {
+          let playlistId = res.data.id;
+          const addSongs = async () => {
+            const res = await axios.post(
+              `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
+              {
+                uris: songURIs,
+              },
+              {
+                headers: {
+                  Authorization: "Bearer " + token,
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+            if (res.data.snapshot_id) {
+              alert("Success! Playlist added.");
+            }
+          };
+          addSongs();
+        }
       } catch (error) {
         console.error(
           "Error creating playlist:",
@@ -85,27 +105,7 @@ export default function ResultsPage() {
         );
       }
     };
-
-    const addSongs = async (playlistId) => {
-      const res = await axios.post(
-        `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-            "Content-Type": "application/json",
-          },
-          data: {
-            uris: songURIs,
-          },
-        }
-      );
-      if (res.data.snapshot_id) {
-        alert("Success! Playlist added.");
-      }
-    };
-
-    let playlistId = addPlaylist();
-    addSongs(playlistId);
+    addPlaylist();
   };
 
   const songs = results.tracks.map(({ id, name, artists }) => {
