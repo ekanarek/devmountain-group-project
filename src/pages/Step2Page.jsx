@@ -122,48 +122,7 @@ const DesktopStep2sliders = () => {
                             </div>  
                         </div>  
                     </div>  
-                    {/* <div className="frameParent6">  
-                        <div className="weHaveJustThePlaylistToFWrapper">  
-                            <div className="frameContainer">  
-                                <div className="selectYourEnergyLevelWrapper">  
-                                    <div className="selectYourEnergy">Select your happiness level</div>  
-                                </div>  
-                                <div className="frameParent3">  
-                                    <div className="frameParent9">  
-                                        <div className="emojiLoudlyCryingFaceWrapper">  
-                                            <img className="emojiLoudlyCryingFace" alt="" src={`/src/assets/emojiCrying.svg`} />  
-                                        </div>  
-                                        <div className="emojiWorriedFaceWrapper">  
-                                            <img className="emojiWorriedFace" alt="" src={`/src/assets/emojiWorried.svg`} />  
-                                        </div>  
-                                        <div className="emojiWorriedFaceWrapper">  
-                                            <img className="emojiWorriedFace" alt="" src={`/src/assets/emojiNeutral.svg`} />  
-                                        </div>  
-                                        <div className="emojiWorriedFaceWrapper">  
-                                            <img className="emojiWorriedFace" alt="" src={`/src/assets/emojiSmiling.svg`} />  
-                                        </div>  
-                                        <div className="emojiWorriedFaceWrapper">  
-                                            <img className="emojiGrinningFace" alt="" src={`/src/assets/emojiGrinning.svg`} />  
-                                        </div>  
-                                    </div>  
-                                    <div className="notAtAlllParent">  
-                                        <div className="low">low</div>  
-                                        <div className="low">high</div>  
-                                    </div>  
-                                </div>  
-                            </div>  
-                        </div>  
-                        <div className="frameWrapper1">  
-                            <div className="frameParent10">  
-                                <div className="backWrapper">  
-                                    <b className="notAtAlll">back</b>  
-                                </div>  
-                                <div className="nextWrapper">  
-                                    <b className="notAtAlll">next</b>  
-                                </div>  
-                            </div>  
-                        </div>  
-                    </div>   */}
+                    
                 </div>  
             </div>  
         </div>  
