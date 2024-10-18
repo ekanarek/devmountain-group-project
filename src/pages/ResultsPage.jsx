@@ -12,10 +12,10 @@ export default function ResultsPage() {
 
   // THIS WILL BE USER INPUT
   const moodInput = {
-    genre: "rock",
-    energy: 0.0,
-    instrumentalness: 0.5,
-    happiness: 1.0,
+    genre: "house",
+    energy: 0.7721,
+    instrumentalness: 0.7721,
+    happiness: 0.7721,
   };
 
   useEffect(() => {
