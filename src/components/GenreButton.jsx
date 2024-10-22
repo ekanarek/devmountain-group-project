@@ -1,3 +1,7 @@
-export default function GenreButton() {
-  return <></>;
+export default function GenreButton({ genre }) {
+  return (
+    <>
+      <button>{genre}</button>
+    </>
+  );
 }
