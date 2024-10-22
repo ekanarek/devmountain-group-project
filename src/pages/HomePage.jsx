@@ -1,4 +1,4 @@
-import TestButton from "../components/TestButton";
+import TestButton from "../components/LoginButton";
 
 export default function HomePage() {
   const handleLogin = () => {

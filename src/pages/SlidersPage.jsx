@@ -5,7 +5,7 @@ import FetchRecsButton from "../components/FetchRecsButton";
 import ResultsPage from "./ResultsPage";
 import { useToken } from "../contexts/TokenContext";
 
-export default function LandingPage() {
+export default function SlidersPage() {
   //sample response
   const sampleUserObject = {
     country: "string",

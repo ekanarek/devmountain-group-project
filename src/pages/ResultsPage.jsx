@@ -35,7 +35,7 @@ export default function ResultsPage() {
           },
         }
       );
-      console.log(res.data);
+      //console.log(res.data);
       setResults(res.data);
     };
     fetchRecs(moodInput);
@@ -97,6 +97,22 @@ export default function ResultsPage() {
             }
           };
           addSongs();
+          const updatePlaylistName = async () => {
+            const res = await axios.put(
+              `https://api.spotify.com/v1/playlists/${playlistId}`,
+              {
+                name: "Fun times",
+                description: "Updated playlist description",
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+          };
+          updatePlaylistName();
         }
       } catch (error) {
         console.error(
@@ -127,24 +143,3 @@ export default function ResultsPage() {
     </>
   );
 }
-
-// update playlist details api call
-
-const data = {
-  name: "Updated Playlist Name",
-  description: "Updated playlist description",
-};
-
-axios
-  .put(url, data, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-  })
-  .then((res) => {
-    console.log("Playlist updated:", res.data);
-  })
-  .catch((error) => {
-    console.error("Error updating playlist:", error);
-  });
