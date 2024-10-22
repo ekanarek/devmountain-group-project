@@ -12,10 +12,10 @@ export default function ResultsPage() {
 
   // THIS WILL BE USER INPUT
   const moodInput = {
-    genre: "house",
-    energy: 0.7721,
-    instrumentalness: 0.7721,
-    happiness: 0.7721,
+    genre: "classical",
+    energy: 0.5,
+    instrumentalness: 0.5,
+    happiness: 1.0,
   };
 
   useEffect(() => {
@@ -127,3 +127,24 @@ export default function ResultsPage() {
     </>
   );
 }
+
+// update playlist details api call
+
+const data = {
+  name: "Updated Playlist Name",
+  description: "Updated playlist description",
+};
+
+axios
+  .put(url, data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  })
+  .then((res) => {
+    console.log("Playlist updated:", res.data);
+  })
+  .catch((error) => {
+    console.error("Error updating playlist:", error);
+  });
