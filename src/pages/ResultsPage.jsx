@@ -101,7 +101,7 @@ export default function ResultsPage() {
             const res = await axios.put(
               `https://api.spotify.com/v1/playlists/${playlistId}`,
               {
-                name: "Fun times",
+                name: "Updated playlist name",
                 description: "Updated playlist description",
               },
               {
