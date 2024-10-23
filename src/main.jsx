@@ -10,14 +10,14 @@ import "./index.css";
 import App from "./App.jsx";
 import { TokenProvider } from "./contexts/TokenContext.jsx";
 import HomePage from "./pages/HomePage.jsx";
-import LandingPage from "./pages/LandingPage.jsx";
+import SlidersPage from "./pages/SlidersPage.jsx";
 import ResultsPage from "./pages/ResultsPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<HomePage />} />
-      <Route path="/new-mood" element={<LandingPage />} />
+      <Route path="/new-mood" element={<SlidersPage />} />
       <Route path="/results" element={<ResultsPage />} />
     </Route>
   )

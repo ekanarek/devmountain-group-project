@@ -5,17 +5,17 @@ import SavePlaylistButton from "../components/SavePlaylistButton";
 
 export default function ResultsPage() {
   const { token, setToken } = useToken();
-  const [userId, setUserId] = useState("");
+  const [user, setUser] = useState({ userId: "", displayName: "" });
   const [results, setResults] = useState({
     tracks: [{ id: 1, name: "Loading", artists: [{ name: "Please wait" }] }],
   });
 
   // THIS WILL BE USER INPUT
   const moodInput = {
-    genre: "house",
-    energy: 0.7721,
-    instrumentalness: 0.7721,
-    happiness: 0.7721,
+    genre: "classical",
+    energy: 0,
+    instrumentalness: 0,
+    happiness: 0,
   };
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function ResultsPage() {
           },
         }
       );
-      console.log(res.data);
+      //console.log(res.data);
       setResults(res.data);
     };
     fetchRecs(moodInput);
@@ -54,7 +54,7 @@ export default function ResultsPage() {
           Authorization: "Bearer " + token,
         },
       });
-      setUserId(res.data.id);
+      setUser({ userId: res.data.id, displayName: res.data.display_name });
     };
     getUserId();
   }, []);
@@ -63,7 +63,7 @@ export default function ResultsPage() {
     const addPlaylist = async () => {
       try {
         const res = await axios.post(
-          `https://api.spotify.com/v1/users/${userId}/playlists`,
+          `https://api.spotify.com/v1/users/${user.userId}/playlists`,
           {
             name: "New MoodMaestro Mood",
             description: "description here",
@@ -97,6 +97,22 @@ export default function ResultsPage() {
             }
           };
           addSongs();
+          const updatePlaylistName = async () => {
+            const res = await axios.put(
+              `https://api.spotify.com/v1/playlists/${playlistId}`,
+              {
+                name: "Fun times",
+                description: "Updated playlist description",
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+          };
+          updatePlaylistName();
         }
       } catch (error) {
         console.error(
@@ -106,6 +122,21 @@ export default function ResultsPage() {
       }
     };
     addPlaylist();
+
+    const addUserToDB = async () => {
+      const res = await axios.post("/add_user", { user: user });
+      console.log(res.status);
+    };
+    addUserToDB();
+
+    const addMoodtoDB = async () => {
+      const res = await axios.post("/add_mood", {
+        userId: user.userId,
+        mood: moodInput,
+      });
+      console.log(res.status);
+    };
+    addMoodtoDB();
   };
 
   const songs = results.tracks.map(({ id, name, artists }) => {
