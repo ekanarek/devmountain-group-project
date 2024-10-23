@@ -6,6 +6,7 @@ import axios from "axios";
 import querystring from "node:querystring";
 import dotenv from "dotenv";
 import cors from "cors";
+import { User, Mood } from "./db/db.js";
 dotenv.config();
 
 const app = express();
@@ -66,6 +67,29 @@ app.get("/callback", async function (req, res) {
     console.error("Error getting access token:", error);
     res.status(500).send("Authentication failed");
   }
+});
+
+app.post("/add_user", async (req, res) => {
+  const { user } = req.body;
+  await User.create({
+    spotify_id: user.userId,
+    display_name: user.displayName,
+  });
+  res.status(200).send("Success");
+});
+
+app.post("/add_mood", async (req, res) => {
+  const { userId, mood } = req.body;
+  await Mood.create({
+    user_id: userId,
+    name: "NAME HERE",
+    genre: mood.genre,
+    energy: mood.energy,
+    happiness: mood.happiness,
+    instrumentalness: mood.instrumentalness,
+    acousticness: 0,
+  });
+  res.status(200).send("Success");
 });
 
 ViteExpress.listen(app, port, () =>
