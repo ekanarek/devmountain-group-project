@@ -2,42 +2,19 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import FetchRecsButton from "../components/FetchRecsButton";
-import ResultsPage from "./ResultsPage";
-import { useToken } from "../contexts/TokenContext";
+import { useToken } from "../contexts/TokenSliderContext";
+import MoodSlider from "../components/MoodSlider";
 
 export default function SlidersPage() {
   //sample response
   const sampleUserObject = {
-    country: "string",
     display_name: "Loading",
     email: "Loading",
-    explicit_content: {
-      filter_enabled: false,
-      filter_locked: false,
-    },
-    external_urls: {
-      spotify: "string",
-    },
-    followers: {
-      href: "string",
-      total: 0,
-    },
-    href: "string",
-    id: "string",
-    images: [
-      {
-        url: "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228",
-        height: 300,
-        width: 300,
-      },
-    ],
-    product: "string",
-    type: "string",
-    uri: "string",
   };
 
   const navigate = useNavigate();
-  const { token, setToken } = useToken();
+  const { token, setToken, energyValue, instValue, hapValue } = useToken();
+
   const [serverData, setServerData] = useState(sampleUserObject);
 
   const queryString = window.location.search;
@@ -57,21 +34,34 @@ export default function SlidersPage() {
     getProfile(accessToken);
   }, []);
 
-  // const moodInput = {
-  //   genre: "classical",
-  //   energy: 0,
-  //   instrumentalness: 0,
-  //   happiness: 0,
-  // };
-
   const handleFetch = () => {
     navigate("/results");
   };
 
   return (
     <>
-      <h3>You made it, {serverData.display_name}!</h3>
-      <h4>Email: {serverData.email}</h4>
+      <div className="energySliderContainer">
+        <p>How much energy do you have?</p>
+        <MoodSlider attribute={"energy"} />
+        {energyValue}
+      </div>
+      <br />
+
+      <div className="instSliderContainer">
+        <p>How instrumental would you like your music to be?</p>
+        <MoodSlider attribute={"inst"} />
+        {instValue}
+      </div>
+      <br />
+
+      <div className="hapSliderContainer">
+        <p>How happy are you feeling?</p>
+        <MoodSlider attribute={"hap"} />
+        {hapValue}
+      </div>
+      <br />
+      <br />
+
       <FetchRecsButton onClick={handleFetch} />
     </>
   );

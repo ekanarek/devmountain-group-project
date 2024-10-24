@@ -71,11 +71,20 @@ app.get("/callback", async function (req, res) {
 
 app.post("/add_user", async (req, res) => {
   const { user } = req.body;
-  await User.create({
-    spotify_id: user.userId,
-    display_name: user.displayName,
+  let possibleUser = await User.findOne({
+    where: {
+      spotify_id: user.userId,
+    },
   });
-  res.status(200).send("Success");
+  if (!possibleUser) {
+    await User.create({
+      spotify_id: user.userId,
+      display_name: user.displayName,
+    });
+    res.status(200).send("Success");
+  } else {
+    res.status(302).send("User already found");
+  }
 });
 
 app.post("/add_mood", async (req, res) => {

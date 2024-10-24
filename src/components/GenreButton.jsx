@@ -1,7 +1,9 @@
 export default function GenreButton({ genre }) {
   return (
-    <>
-      <button>{genre}</button>
-    </>
+    <div style={{ paddingTop: "12px" }}>
+      <button style={{ width: "300px", justifyContent: "center" }}>
+        {genre}
+      </button>
+    </div>
   );
 }
