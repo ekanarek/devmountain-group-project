@@ -1,3 +1,3 @@
-export default function SavePlaylistButton({ onClick }) {
-  return <button onClick={onClick}>Save Playlist on Spotify</button>;
+export default function SavePlaylistButton() {
+  return <button type="submit">Save Playlist to Spotify</button>;
 }

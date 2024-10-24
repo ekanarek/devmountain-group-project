@@ -91,7 +91,7 @@ app.post("/add_mood", async (req, res) => {
   const { userId, mood } = req.body;
   await Mood.create({
     user_id: userId,
-    name: "NAME HERE",
+    name: mood.name,
     genre: mood.genre,
     energy: mood.energy,
     happiness: mood.happiness,
