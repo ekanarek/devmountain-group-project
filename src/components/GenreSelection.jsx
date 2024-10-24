@@ -16,6 +16,8 @@ const GenreSelection = () => {
 
     ];
 
+    // I think I need spotify token stuff, ask about how to do that!
+
     const handleGenreClick = (genre) => {
         setSelectedGenre(genre);
     };
@@ -33,6 +35,13 @@ const GenreSelection = () => {
                 ))}
             </div>
             {selectedGenre && <p>Youve selected: {selectedGenre}</p>}
+            <ul>
+                {songs.map((song, index) => (
+                    <li key={index}>
+                        {song.name} by {song.artists.map(artist => artist.name).join(', ')}
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 };
