@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import GenreButton from './GenreButton';
 
+// We will add the sliders/mood to this function as well (I think)
+// Needs to still act as component since its only part of a bigger function
+
 const GenreSelection = () => {
     const [selectedGenre, setSelectedGenre] = useState('');
 
