@@ -114,7 +114,7 @@ const DesktopStep2sliders = () => {
                                     <b className="notAtAlll">back</b>  
                                 </div>  
                                 <div className="nextWrapper">  
-                                    <b className="notAtAlll">next</b>  
+                                    <b className="notAtAlllNext">next</b>  
                                 </div>  
                             </div>  
                         </div>  

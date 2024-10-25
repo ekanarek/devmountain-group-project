@@ -160,7 +160,15 @@
 .notAtAlll {
     position: relative;
     font-size: 1rem;
+    color: white;
 }
+
+.notAtAlllNext {
+    position: relative;
+    font-size: 1rem;
+    color: black;
+}
+
 .notAtAlllParent {
     align-self: stretch;
     display: flex;

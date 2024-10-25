@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';   
 
 export default function LandingPage() {
-  //sample response
+  // sample response
   const sampleUserObject = {
     country: "string",
     display_name: "Jon",
@@ -43,9 +43,11 @@ export default function LandingPage() {
       <h4>Email: {serverData.email}</h4>
       <div>
       <p>  
+        <Link to="/Step1Page">Step1 </Link>  
         <Link to="/Step2Page">Step2 </Link>  
         </p>  
       </div>
     </>
   );
 }
+
