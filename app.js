@@ -53,7 +53,7 @@ app.get("/callback", async function (req, res) {
     },
     data: new URLSearchParams({
       code: code,
-      redirect_uri: redirect_uri, // make sure redirect_uri is defined
+      redirect_uri: redirect_uri,
       grant_type: "authorization_code",
     }).toString(),
   };
@@ -61,7 +61,7 @@ app.get("/callback", async function (req, res) {
   try {
     const response = await axios(authOptions);
     const access_token = response.data.access_token;
-    const uri = process.env.FRONTEND_URI || "http://localhost:8000/new-mood";
+    const uri = process.env.FRONTEND_URI || "http://localhost:8000/genre";
     res.redirect(`${uri}?access_token=${access_token}`);
   } catch (error) {
     console.error("Error getting access token:", error);

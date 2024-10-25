@@ -1,3 +1,7 @@
 export default function SavePlaylistButton() {
-  return <button type="submit">Save Playlist to Spotify</button>;
+  return (
+    <button style={{ marginLeft: "30px" }} type="submit">
+      Save Playlist to Spotify
+    </button>
+  );
 }

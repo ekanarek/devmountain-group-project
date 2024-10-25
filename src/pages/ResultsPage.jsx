@@ -1,3 +1,4 @@
+import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useToken } from "../contexts/TokenSliderContext";
@@ -11,6 +12,7 @@ export default function ResultsPage() {
     useToken();
 
   const [user, setUser] = useState({ userId: "", displayName: "" });
+
   const [results, setResults] = useState({
     tracks: [{ id: 1, name: "Loading", artists: [{ name: "Please wait" }] }],
   });
@@ -42,7 +44,6 @@ export default function ResultsPage() {
         }
       );
       console.log(moodInput);
-      console.log(res.data);
       setResults(res.data);
     };
     fetchRecs(moodInput);
@@ -150,7 +151,7 @@ export default function ResultsPage() {
 
   const songs = results.tracks.map(({ id, name, artists }) => {
     return (
-      <li key={id}>
+      <li className="song" key={id}>
         {name}
         <br />
         {artists[0].name}
