@@ -6,7 +6,7 @@ import axios from "axios";
 import querystring from "node:querystring";
 import dotenv from "dotenv";
 import cors from "cors";
-import { User, Mood } from "./db/db.js";
+import { User, Mood } from "./db.js";
 dotenv.config();
 
 const app = express();
@@ -91,6 +91,20 @@ app.post("/add_mood", async (req, res) => {
   });
   res.status(200).send("Success");
 });
+
+app.get("/api/moods/:userId", async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const moods = await Mood.findAll({
+      where: { user_id: userId },
+      order: [["createdAt", "DESC"],]
+    });
+    res.json(moods);
+  } catch (error) {
+    console.error("Error retrieving moods: ", error);
+    res.status(500).send("Could not retrieve moods");
+  }
+})
 
 ViteExpress.listen(app, port, () =>
   console.log(`Server is listening on http://localhost:${port}`)
