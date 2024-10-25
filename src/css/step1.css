@@ -589,14 +589,14 @@ text-align: left;
     gap: 17px;
     color: #fff;
 }
-.frameParent3 {
+/* .frameParent3 {
     align-self: stretch;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 22px;
-}
+} */
 .rockWrapper {
     flex: 1;
     border-radius: 4px;
