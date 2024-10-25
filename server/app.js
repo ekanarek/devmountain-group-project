@@ -106,6 +106,20 @@ app.get("/api/moods/:userId", async (req, res) => {
   }
 })
 
+app.delete("/api/moods/:moodId", async (req, res) => {
+  const { moodId } = req.params;
+
+  try {
+    await Mood.destroy({
+      where: { mood_id: moodId }
+    });
+    res.status(200).send("Mood deleted successfully");
+  } catch (error) {
+    console.error("Error deleting mood: ", error);
+    res.status(500).send("Failed to delete mood")
+  }
+})
+
 ViteExpress.listen(app, port, () =>
   console.log(`Server is listening on http://localhost:${port}`)
 );
