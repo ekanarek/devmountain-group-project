@@ -12,6 +12,7 @@ import { TokenProvider } from "./contexts/TokenContext.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import SlidersPage from "./pages/SlidersPage.jsx";
 import ResultsPage from "./pages/ResultsPage.jsx";
+import MoodsPage from "./pages/MoodsPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
       <Route index element={<HomePage />} />
       <Route path="/new-mood" element={<SlidersPage />} />
       <Route path="/results" element={<ResultsPage />} />
+      <Route path="/moods" element={<MoodsPage />} />
     </Route>
   )
 );
