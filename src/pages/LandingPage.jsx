@@ -45,6 +45,7 @@ export default function LandingPage() {
       <p>  
         <Link to="/Step1Page">Step1 </Link>  
         <Link to="/Step2Page">Step2 </Link>  
+        <Link to="/ResultsPage">Results </Link>  
         </p>  
       </div>
     </>
