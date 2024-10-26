@@ -1,0 +1,94 @@
+.desktopLoginChild {
+    position: absolute;
+    top: 579px;
+    left: 383px;
+    width: 337px;
+    height: 51px;
+}
+
+
+
+.introLogo {
+    width: 273px;
+    position: relative;
+}
+.introLogoWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 0px 0px 20px;
+}
+.brandStatement {
+    align-self: stretch;
+    position: relative;
+    padding:1rem;
+    font-size: 18px;;
+}
+.homePagelogoAndText {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+}
+.spotifyPrimaryLogoRgbGreenIcon {
+    width: 27px;
+    position: relative;
+    height: 27px;
+    object-fit: cover;
+}
+.signInWith {
+    position: relative;
+}
+.logoWithText {
+    align-self: stretch;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    gap: 12px;
+}
+.logoBtn {
+    width: 233px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.logoBtnWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #000;
+}
+.homePageFrameParent {
+    position: relative;
+    top: 200px;
+    /* left: 561px;
+    width: 317px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+.desktopLogin {
+    width: 100%;
+    position: relative;
+    background-color: #000;
+    height: 1024px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    font-family: Inter;
+}
+
