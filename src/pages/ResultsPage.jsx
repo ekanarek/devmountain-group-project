@@ -3,10 +3,17 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useToken } from "../contexts/TokenSliderContext";
 import MoodNameInput from "../components/MoodNameInput";
-import { useNavigate } from "react-router-dom";
+import SavePlaylistButton from "../components/SavePlaylistButton";
+import Header from "../components/Header";
+import { useNavigate, useLocation } from "react-router-dom";
+import "../styles/ResultsPageStyles.css";
 
 export default function ResultsPage() {
   const navigate = useNavigate();
+  const { state } = useLocation();
+
+  // State passed from SavedMoodsTable, if any
+  const savedParameters = state?.parameters;
 
   const { token, genre, energyValue, instValue, hapValue, moodName } =
     useToken();
@@ -152,13 +159,18 @@ export default function ResultsPage() {
 
   const songs = results.tracks.map(({ id, name, artists }) => {
     return (
-      <li className="song" key={id}>
-        {name}
-        <br />
-        {artists[0].name}
-        <br />
-        <br />
-      </li>
+      // <li className="song" key={id}>
+      //   {name}
+      //   <br />
+      //   {artists[0].name}
+      //   <br />
+      //   <br />
+      // </li>
+
+      <div className="song" key={id}>
+        <div>{name}</div>
+        <b>{artists[0].name}</b>
+      </div>
     );
   });
 
@@ -169,10 +181,97 @@ export default function ResultsPage() {
     }, []);
   }
 
+  //   return (
+  //     <>
+  //       <ul>{songs}</ul>
+  //       <MoodNameInput onSubmit={handleNewPlaylist} />
+  //     </>
+  //   );
+  // }
+
   return (
-    <>
-      <ul>{songs}</ul>
-      <MoodNameInput onSubmit={handleNewPlaylist} />
-    </>
+    <div className="desktopResults">
+      <div className="resultsSynclogo1Parent">
+        <Header height="42rem" />
+        <img
+          className="resultsStep1VectorIcon"
+          alt=""
+          src="/src/assets/profile.svg"
+        />
+      </div>
+      <div className="resultsFrameParent">
+        <div className="resultsCreateAMoodWrapper">
+          <b className="resultsCreateAMood">Create a mood</b>
+        </div>
+        <div className="resultsMyMoodsWrapper">
+          <div className="resultsCreateAMood">My moods</div>
+        </div>
+      </div>
+
+      <div className="resultsFrameWrapper">
+        <b className="ResultsSaveYourMood">Save your mood playlist</b>
+      </div>
+
+      <div className="step33Parent">
+        <div className="nameYourMood">Step3/3</div>
+        <div className="results">RESULTS</div>
+      </div>
+
+      {/* <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div> */}
+
+      <div className="resultsInputAndButton">
+        <div className="songResults">{songs}</div>
+
+        <MoodNameInput onSubmit={handleNewPlaylist} />
+      </div>
+    </div>
   );
 }

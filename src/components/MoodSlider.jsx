@@ -1,4 +1,5 @@
 import { useToken } from "../contexts/TokenSliderContext";
+import "../styles/MoodSliderStyles.css";
 
 export default function MoodSlider({ attribute }) {
   const {

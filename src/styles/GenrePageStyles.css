@@ -14,16 +14,16 @@
   position: relative;
   /* top: 52px; */
   margin-top: 4rem;
-  margin: 1.25rem 1.25rem;
+  margin: 1.25rem 0 1.25rem 0;
   /* width: 100vw; */
-  padding: 1rem;
+  padding: 1rem 0 1rem 0;
   /* left: 49px;
     width: 1341px; */
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 90vw;
+  /* width: 90vw; */
   align-self: stretch;
 }
 .groupParent {
@@ -55,7 +55,7 @@
     position: relative;
     line-height: 125%;
     white-space: pre-wrap; */
-  width: 100%;
+  /* width: 100%;
   position: relative;
   font-size: 42px;
   line-height: 125%;
@@ -63,7 +63,19 @@
   font-family: Inter;
   color: #fff;
   white-space: pre-wrap;
+  text-align: left; */
+  align-self: stretch;
+  position: relative;
+  flex-direction: column;
+  line-height: 125%;
+  white-space: pre-wrap;
+  align-items: flex-start;
   text-align: left;
+  padding-top: 1rem;
+  display: inline-block;
+  font-size: 3rem;
+  justify-content: flex-start;
+  width: 100vw;
 }
 .genres {
   width: 184px;
@@ -682,8 +694,7 @@ h2 {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 24px 0px 0px;
-  gap: 70px;
+  gap: 24px;
   font-size: 20px;
 }
 .step1frameGroup {
@@ -716,16 +727,26 @@ h2 {
     font-size: 26px;
     color: #fff;
     font-family: Inter; */
-
+  /* 
   position: relative;
   background-color: #000;
   margin-left: 1rem;
   margin-right: 1rem;
-  /* overflow: hidden; */
   text-align: center;
   align-content: top;
   justify-content: center;
   color: #fff;
   font-family: Inter;
+  width: 95vw; */
+  position: relative;
+  background-color: #000;
+  /* overflow: hidden; */
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  color: #fff;
+  font-family: Inter;
   width: 95vw;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }

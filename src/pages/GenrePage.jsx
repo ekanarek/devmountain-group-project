@@ -71,7 +71,7 @@ export default function GenrePage() {
   return (
     <div className="desktopstep1Genre">
       <div className="step1Synclogo1Parent">
-        <Header />
+        <Header height="42rem" />
         <img className="step1VectorIcon" alt="" src="/src/assets/profile.svg" />
       </div>
       {/* <div className="step1frameParent">
@@ -84,10 +84,8 @@ export default function GenrePage() {
       </div> */}
 
       <div className="frameContainerB">
-        <div className="step1HeaderText">
-          <b className="step1Text">
-            We have just the playlist to fit your current mood.
-          </b>
+        <div className="step1Text">
+          We have just the playlist to fit your current mood.
         </div>
         <div className="step13Parent">
           <div className="step1NotAtAlll">Step 1/3</div>

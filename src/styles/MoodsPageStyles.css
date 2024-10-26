@@ -1,0 +1,116 @@
+.savedSynclogo1Icon {
+  width: 130px;
+  position: relative;
+  height: 61px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.savedStep1VectorIcon {
+  width: 42px;
+  position: relative;
+  height: 42px;
+}
+.savedSynclogo1Parent {
+  position: relative;
+  /* top: 52px; */
+  margin-top: 4rem;
+  margin: 1.25rem 1.25rem;
+  /* width: 100vw; */
+  padding: 1rem;
+  /* left: 49px;
+  width: 1341px; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+}
+.savedCreateAMood {
+  flex: 1;
+  position: relative;
+  text-align: center;
+}
+.savedMyMoodsWrapper {
+  flex: 1;
+  border-bottom: 1px solid #ee28ff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 0px 24px;
+}
+.savedCreateAMoodWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 0px 24px;
+}
+.savedFrameParent {
+  position: relative;
+  border-bottom: 1px solid #fff;
+  box-sizing: border-box;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.moodDetails {
+  align-self: stretch;
+  position: relative;
+  line-height: 125%;
+  font-size: 28px;
+}
+
+.tableRow {
+  align-self: stretch;
+  flex: 1;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 2rem;
+  text-align: left;
+  background-color: #1e1e1e;
+  width: 90vw;
+  margin-bottom: 2rem;
+}
+
+.savedMoodPadding {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.desktopSavedmoodsInner {
+  position: absolute;
+  top: 301px;
+  left: 178px;
+  width: 1061px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: 20px;
+}
+.desktopSavedmoods {
+  width: 100%;
+  position: relative;
+  background-color: #000;
+  overflow: hidden;
+  text-align: center;
+  font-size: 26px;
+  color: #fff;
+  font-family: Inter;
+}
+
+* {
+  padding: 0;
+}

@@ -5,7 +5,7 @@
   }
   .frameParent1,
   .frameParent6 {
-    width: 90vw; /* Ensure the frames take up most of the screen width */
+    width: 100vw; /* Ensure the frames take up most of the screen width */
     margin: 0, 0; /*Adds space between frames   */
   }
   /*Additional responsive styles */
@@ -27,16 +27,16 @@
   position: relative;
   /* top: 52px; */
   margin-top: 4rem;
-  margin: 1.25rem 1.25rem;
+  margin: 1.25rem 0 1.25rem 0;
   /* width: 100vw; */
-  padding: 1rem;
+  padding: 1rem 0 1rem 0;
   /* left: 49px;
-  width: 1341px; */
+      width: 1341px; */
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 90vw;
+  /* width: 100vw; */
   align-self: stretch;
 }
 .createAMood {
@@ -83,16 +83,8 @@
   padding-top: 1rem;
   display: inline-block;
   font-size: 3rem;
-  margin-top: 2rem;
-}
-.weHaveJustThePlaylistToFWrapper {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   justify-content: flex-start;
-  text-align: flex-start;
-  width: 95vw;
+  width: 100vw;
 }
 .mood {
   width: 184px;
@@ -121,9 +113,8 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 90vw;
-  padding: 0rem 1rem 0rem;
-  gap: 1.5rem;
+  gap: 70px;
+  font-size: 20px;
 }
 .selectYourEnergy {
   flex: 1;
@@ -263,6 +254,8 @@
   padding: 1rem 1.5rem;
 }
 .nextWrapper {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
   flex: 1;
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -283,7 +276,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  width: 95vw;
+  width: 100vw;
 }
 .frameWrapper1 {
   align-self: stretch;
@@ -313,19 +306,19 @@
   gap: 3rem;
   font-size: 1.5rem;
   flex-wrap: wrap;
-  width: 90vw;
+  width: 100vw;
 }
 
-.frameDiv > * {
+/* .frameDiv > * {
   flex: 0 50% 80%;
-}
+} */
 
 .frameGroup {
   position: relative;
   top: 3rem;
   /* left: 2rem;
   right:2rem;  */
-  width: 90vw;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -336,13 +329,13 @@
 .desktopStep2sliders {
   position: relative;
   background-color: #000;
-
   /* overflow: hidden; */
   text-align: center;
-  align-content: top;
+  align-content: center;
   justify-content: center;
-  height: 1080px;
   color: #fff;
   font-family: Inter;
-  width: 100vw;
+  width: 95vw;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }

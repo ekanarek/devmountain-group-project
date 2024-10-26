@@ -19,10 +19,17 @@ export default function DeleteButton({ moodId, onDelete }) {
 
   return (
     <button
+      className="deleteButton"
       onClick={handleDelete}
-      style={{ border: "none", background: "transparent", cursor: "pointer" }}
+      style={{
+        height: "24px",
+        width: "24px",
+        border: "transparent",
+        background: "transparent",
+        cursor: "pointer",
+      }}
     >
-      x
+      <img alt="" src="/src/assets/trash.svg"></img>
     </button>
   );
 }
