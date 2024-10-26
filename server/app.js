@@ -115,6 +115,21 @@ app.get("/api/moods/:userId", async (req, res) => {
   }
 });
 
+app.get("/api/mood/:moodId", async (req, res) => {
+  const { moodId } = req.params;
+  try {
+    const mood = await Mood.findByPk(moodId);
+    if (mood) {
+      res.json(mood);
+    } else {
+      res.status(404).send("Mood not found");
+    }
+  } catch (error) {
+    console.error("Error retrieving mood: ", error);
+    res.status(500).send("Could not retrieve mood");
+  }
+})
+
 app.delete("/api/moods/:moodId", async (req, res) => {
   const { moodId } = req.params;
 
