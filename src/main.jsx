@@ -7,6 +7,7 @@ import LandingPage from './pages/LandingPage';
 import Step1Page from './pages/Step1Page'; // Ensure this is correct  
 import Step2Page from './pages/Step2Page'; // Ensure this is correct  
 import ResultsPage from './pages/ResultsPage'; // Ensure this is correct  
+import SavedMoodsPage from './pages/SavedMoodsPage'; // Ensure this is correct  
 
 import './index.css'; // Optional: global styles  
 
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
       { path: "HomePage", element: <HomePage /> },
       { path: "Step1Page", element: <Step1Page /> }, // Ensure Step1Page is imported correctly  
       { path: "Step2Page", element: <Step2Page /> }, // Ensure Step2Page is imported correctly  
-      { path: "ResultsPage", element: <ResultsPage /> } // Ensure Step2Page is imported correctly  
+      { path: "ResultsPage", element: <ResultsPage /> }, // Ensure Step2Page is imported correctly  
+      { path: "SavedMoodsPage", element: <SavedMoodsPage /> }, // Ensure Step2Page is imported correctly  
 
     ]  
   }  
