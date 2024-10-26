@@ -1,5 +1,10 @@
-import React from "react";
+import SavedMoodsTable from "../components/SavedMoodsTable.jsx";
 
 export default function MoodsPage() {
-  return <></>;
+  return (
+    <>
+      <h1>Saved Moods</h1>
+      <SavedMoodsTable />
+    </>
+  );
 }

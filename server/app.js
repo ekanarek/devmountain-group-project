@@ -6,7 +6,7 @@ import axios from "axios";
 import querystring from "node:querystring";
 import dotenv from "dotenv";
 import cors from "cors";
-import { User, Mood } from "./db/db.js";
+import { User, Mood } from "./db.js";
 dotenv.config();
 
 const app = express();
@@ -69,7 +69,7 @@ app.get("/callback", async function (req, res) {
   }
 });
 
-app.post("/add_user", async (req, res) => {
+app.post("/api/add_user", async (req, res) => {
   const { user } = req.body;
   let possibleUser = await User.findOne({
     where: {
@@ -87,7 +87,7 @@ app.post("/add_user", async (req, res) => {
   }
 });
 
-app.post("/add_mood", async (req, res) => {
+app.post("/api/add_mood", async (req, res) => {
   const { userId, mood } = req.body;
   await Mood.create({
     user_id: userId,
@@ -99,6 +99,34 @@ app.post("/add_mood", async (req, res) => {
     acousticness: 0,
   });
   res.status(200).send("Success");
+});
+
+app.get("/api/moods/:userId", async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const moods = await Mood.findAll({
+      where: { user_id: userId },
+      order: [["createdAt", "DESC"]],
+    });
+    res.json(moods);
+  } catch (error) {
+    console.error("Error retrieving moods: ", error);
+    res.status(500).send("Could not retrieve moods");
+  }
+});
+
+app.delete("/api/moods/:moodId", async (req, res) => {
+  const { moodId } = req.params;
+
+  try {
+    await Mood.destroy({
+      where: { mood_id: moodId },
+    });
+    res.status(200).send("Mood deleted successfully");
+  } catch (error) {
+    console.error("Error deleting mood: ", error);
+    res.status(500).send("Failed to delete mood");
+  }
 });
 
 ViteExpress.listen(app, port, () =>

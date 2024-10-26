@@ -133,20 +133,21 @@ export default function ResultsPage() {
     addPlaylist();
 
     const addUserToDB = async () => {
-      const res = await axios.post("/add_user", { user: user });
+      const res = await axios.post("/api/add_user", { user: user });
       console.log(res.status);
-      if (res.status === 200) {
-        const addMoodtoDB = async () => {
-          const res = await axios.post("/add_mood", {
-            userId: user.userId,
-            mood: moodInput,
-          });
-          console.log(res.status);
-        };
-        addMoodtoDB();
-      }
     };
     addUserToDB();
+
+    const addMoodtoDB = async () => {
+      const res = await axios.post("/api/add_mood", {
+        userId: user.userId,
+        mood: moodInput,
+      });
+      console.log(res.status);
+    };
+    addMoodtoDB();
+
+    navigate("/moods");
   };
 
   const songs = results.tracks.map(({ id, name, artists }) => {

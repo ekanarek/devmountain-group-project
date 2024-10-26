@@ -5,6 +5,7 @@ const TokenCoxtext = createContext();
 
 export const TokenProvider = ({ children }) => {
   const [token, setToken] = useState("");
+  const [userId, setUserId] = useState("");
 
   const [genre, setGenre] = useState("pop");
   const [energyValue, setEnergyValue] = useState(5);
@@ -17,6 +18,8 @@ export const TokenProvider = ({ children }) => {
       value={{
         token,
         setToken,
+        userId,
+        setUserId,
         genre,
         setGenre,
         energyValue,

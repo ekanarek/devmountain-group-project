@@ -12,7 +12,7 @@ export default function GenrePage() {
   };
 
   const navigate = useNavigate();
-  const { token, setToken, genre, setGenre } = useToken();
+  const { token, setToken, genre, setGenre, userId, setUserId } = useToken();
   const [serverData, setServerData] = useState(sampleUserObject);
 
   const queryString = window.location.search;
@@ -27,6 +27,7 @@ export default function GenrePage() {
         },
       });
       setServerData(res.data);
+      setUserId(res.data.id);
     };
     getProfile(accessToken);
     setToken(accessToken);
