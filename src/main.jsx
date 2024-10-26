@@ -8,17 +8,21 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import App from "./App.jsx";
-import { TokenProvider } from "./contexts/TokenContext.jsx";
+import { TokenProvider } from "./contexts/TokenSliderContext.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import GenrePage from "./pages/GenrePage.jsx";
 import SlidersPage from "./pages/SlidersPage.jsx";
 import ResultsPage from "./pages/ResultsPage.jsx";
+import MoodsPage from "./pages/MoodsPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<HomePage />} />
-      <Route path="/new-mood" element={<SlidersPage />} />
+      <Route path="/genre" element={<GenrePage />} />
+      <Route path="/sliders" element={<SlidersPage />} />
       <Route path="/results" element={<ResultsPage />} />
+      <Route path="/moods" element={<MoodsPage />} />
     </Route>
   )
 );

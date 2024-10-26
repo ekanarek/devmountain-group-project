@@ -1,3 +1,7 @@
 export default function FetchRecsButton({ onClick }) {
-  return <button onClick={onClick}>Get Recs</button>;
+  return (
+    <button className="nextWrapper" onClick={onClick}>
+      Get Songs
+    </button>
+  );
 }

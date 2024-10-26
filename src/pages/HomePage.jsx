@@ -1,4 +1,5 @@
-import TestButton from "../components/LoginButton";
+import React from "react";
+import LoginButton from "../components/LoginButton.jsx";
 
 export default function HomePage() {
   const handleLogin = () => {
@@ -7,10 +8,7 @@ export default function HomePage() {
 
   return (
     <>
-      <TestButton onClick={handleLogin} />
+      <LoginButton onClick={handleLogin} />
     </>
   );
-
-  // another option:
-  // return <a href="/login">Login to Spotify</a>;
 }

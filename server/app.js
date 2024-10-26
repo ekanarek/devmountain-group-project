@@ -6,7 +6,7 @@ import axios from "axios";
 import querystring from "node:querystring";
 import dotenv from "dotenv";
 import cors from "cors";
-import { User, Mood } from "./db/db.js";
+import { User, Mood } from "./db.js";
 dotenv.config();
 
 const app = express();
@@ -53,7 +53,7 @@ app.get("/callback", async function (req, res) {
     },
     data: new URLSearchParams({
       code: code,
-      redirect_uri: redirect_uri, // make sure redirect_uri is defined
+      redirect_uri: redirect_uri,
       grant_type: "authorization_code",
     }).toString(),
   };
@@ -61,7 +61,7 @@ app.get("/callback", async function (req, res) {
   try {
     const response = await axios(authOptions);
     const access_token = response.data.access_token;
-    const uri = process.env.FRONTEND_URI || "http://localhost:8000/new-mood";
+    const uri = process.env.FRONTEND_URI || "http://localhost:8000/genre";
     res.redirect(`${uri}?access_token=${access_token}`);
   } catch (error) {
     console.error("Error getting access token:", error);
@@ -69,20 +69,29 @@ app.get("/callback", async function (req, res) {
   }
 });
 
-app.post("/add_user", async (req, res) => {
+app.post("/api/add_user", async (req, res) => {
   const { user } = req.body;
-  await User.create({
-    spotify_id: user.userId,
-    display_name: user.displayName,
+  let possibleUser = await User.findOne({
+    where: {
+      spotify_id: user.userId,
+    },
   });
-  res.status(200).send("Success");
+  if (!possibleUser) {
+    await User.create({
+      spotify_id: user.userId,
+      display_name: user.displayName,
+    });
+    res.status(200).send("Success");
+  } else {
+    res.status(302).send("User already found");
+  }
 });
 
-app.post("/add_mood", async (req, res) => {
+app.post("/api/add_mood", async (req, res) => {
   const { userId, mood } = req.body;
   await Mood.create({
     user_id: userId,
-    name: "NAME HERE",
+    name: mood.name,
     genre: mood.genre,
     energy: mood.energy,
     happiness: mood.happiness,
@@ -90,6 +99,34 @@ app.post("/add_mood", async (req, res) => {
     acousticness: 0,
   });
   res.status(200).send("Success");
+});
+
+app.get("/api/moods/:userId", async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const moods = await Mood.findAll({
+      where: { user_id: userId },
+      order: [["createdAt", "DESC"]],
+    });
+    res.json(moods);
+  } catch (error) {
+    console.error("Error retrieving moods: ", error);
+    res.status(500).send("Could not retrieve moods");
+  }
+});
+
+app.delete("/api/moods/:moodId", async (req, res) => {
+  const { moodId } = req.params;
+
+  try {
+    await Mood.destroy({
+      where: { mood_id: moodId },
+    });
+    res.status(200).send("Mood deleted successfully");
+  } catch (error) {
+    console.error("Error deleting mood: ", error);
+    res.status(500).send("Failed to delete mood");
+  }
 });
 
 ViteExpress.listen(app, port, () =>
