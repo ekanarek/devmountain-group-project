@@ -44,6 +44,7 @@
 .createAMood {
     flex: 1;
     position: relative;
+    font-size: 26px;
 }
 .createAMoodWrapper {
     flex: 1;
