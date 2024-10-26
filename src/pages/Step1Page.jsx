@@ -31,11 +31,12 @@ const DesktopStep1Genre = () => {
       </div>
 
       <div className="step1frameGroup">
-        <div className="step1FrameWrapper">
-          <div className="findYourPreferredGenreWrapper">
-            <div className="findYourPreferred">{`Find your preferred genre `}</div>
-          </div>
-        </div>
+          
+            <div className="findYourPreferred">
+              <b>{`Find your preferred genre `}</b>
+              </div>
+   
+     
 
         <div className="bottomRightBlock">
           <div className="innerBottomRightBlock">
@@ -51,7 +52,7 @@ const DesktopStep1Genre = () => {
                   <b className="pop">indie</b>
                 </div>
               </div>
-              <div className="frameParent5">
+              <div className="step1FrameParent5">
                 <div className="hipHopWrapper">
                   <b className="pop">hip hop</b>
                 </div>

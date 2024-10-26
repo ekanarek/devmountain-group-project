@@ -129,7 +129,7 @@
     position: relative;
 }
 .nameYourMoodInput {
-    width: 388px;
+    width: 80vw;
     border-radius: 4px 4px 0px 0px;
     background-color: rgba(76, 76, 76, 0.4);
     border-bottom: 1px solid #e1ff28;
@@ -172,11 +172,11 @@
     align-self: stretch;
     display: flex;
     flex:1;
-    padding-top: 2rem;
+    padding: 1rem;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 40px;
+    gap: 20px;
 }
 
 .frameWrapper1 {

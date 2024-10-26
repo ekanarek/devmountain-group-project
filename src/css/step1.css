@@ -1,92 +1,90 @@
-
 .step1Synclogo1Icon {
-    width: 130px;
-    position: relative;
-    height: 61px;
-    overflow: hidden;
-    flex-shrink: 0;
+  width: 130px;
+  position: relative;
+  height: 61px;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 .step1VectorIcon {
-    width: 42px;
-    position: relative;
-    height: 42px;
+  width: 42px;
+  position: relative;
+  height: 42px;
 }
 .step1Synclogo1Parent {
-    position: relative;
-    /* top: 52px; */
-    margin-top:4rem;
-    margin: 1.25rem 1.25rem; 
-    /* width: 100vw; */
-    padding: 1rem;
-    /* left: 49px;
+  position: relative;
+  /* top: 52px; */
+  margin-top: 4rem;
+  margin: 1.25rem 1.25rem;
+  /* width: 100vw; */
+  padding: 1rem;
+  /* left: 49px;
     width: 1341px; */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width:90vw;
-    align-self: stretch;;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90vw;
+  align-self: stretch;
 }
 .groupParent {
-    position: relative;
-    /* top: 52px;
+  position: relative;
+  /* top: 52px;
     left: 49px;
     width: 1341px; */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .step1Parent {
-    position: relative;
-    /* top: 187px;
+  position: relative;
+  /* top: 187px;
     left: 178px; */
-    border-bottom: 1px solid #fff;
-    box-sizing: border-box;
-    width: 95vw;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  border-bottom: 1px solid #fff;
+  box-sizing: border-box;
+  width: 95vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
-
 .step1Text {
-    /* align-self: stretch;
+  /* align-self: stretch;
     position: relative;
     line-height: 125%;
     white-space: pre-wrap; */
-    width: 100%;
-position: relative;
-font-size: 32px;
-line-height: 125%;
-display: inline-block;
-font-family: Inter;
-color: #fff;
-white-space: pre-wrap;
-text-align: left;
-}      
+  width: 100%;
+  position: relative;
+  font-size: 42px;
+  line-height: 125%;
+  display: inline-block;
+  font-family: Inter;
+  color: #fff;
+  white-space: pre-wrap;
+  text-align: left;
+}
 .genres {
-    width: 184px;
-    position: relative;
-    font-size: 20px;
-    text-transform: uppercase;
-    color: #d9d9d9;
-    text-align: right;
-    display: inline-block;
-    height: 23px;
-    flex-shrink: 0;
+  width: 184px;
+  position: relative;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #d9d9d9;
+  text-align: right;
+  display: inline-block;
+  height: 23px;
+  flex-shrink: 0;
 }
 .step13Parent {
-    align-self: stretch;
-    border-bottom: 1px solid #4c4c4c;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4px 0px;
-    font-size: 16px;
+  align-self: stretch;
+  border-bottom: 1px solid #4c4c4c;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0px;
+  font-size: 16px;
 }
 /* .weHaveJustThePlaylistToFParent {
     align-self: stretch;
@@ -97,239 +95,239 @@ text-align: left;
     gap: 24px;
 } */
 .findYourPreferred {
-    flex: 1;
-    position: relative;
-    line-height: 125%;
+  flex: 1;
+  position: relative;
+  line-height: 125%;
 }
 .findYourPreferredGenreWrapper {
-    align-self: stretch;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 12px 0px 0px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 12px 0px 0px;
 }
 .step1FrameWrapper {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 .findYourGenre {
-    position: relative;
+  position: relative;
 }
 
 .search {
-    border-radius: 4px;
-    background-color: rgba(76, 76, 76, 0.2);
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 8px;
+  border-radius: 4px;
+  background-color: rgba(76, 76, 76, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px;
 }
 .findYourGenreParent {
-    align-self: stretch;
-    border-radius: 4px 4px 0px 0px;
-    background-color: rgba(76, 76, 76, 0.4);
-    border-bottom: 1px solid #e1ff28;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px;
+  align-self: stretch;
+  border-radius: 4px 4px 0px 0px;
+  background-color: rgba(76, 76, 76, 0.4);
+  border-bottom: 1px solid #e1ff28;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
 }
 
 .frameDiv {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 42px;
-    width:50vw;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 42px;
+  width: 50vw;
 }
 .orChooseFromTheOptionsBelWrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 10px;
-    text-align: left;
-    font-size: 20px;
-    color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  text-align: left;
+  font-size: 20px;
+  color: #fff;
 }
 .pop {
-    width: 96px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 29px;
-    flex-shrink: 0;
+  width: 96px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 29px;
+  flex-shrink: 0;
 }
 .popWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #e1ff28;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #e1ff28;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
 }
 .indieWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #fff;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
 }
 .frameParent4 {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 17px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 17px;
 }
 .hipHopWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #361e9b;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #361e9b;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
 }
 .alternativeWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #26c485;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
-    color: #000;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #26c485;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  color: #000;
 }
-.frameParent5 {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 17px;
-    color: #fff;
+.step1FrameParent5 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 17px;
+  color: #fff;
 }
 .step1FrameParent3 {
-    align-self: stretch;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 22px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 22px;
 }
 .rockWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #29b6f6;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #29b6f6;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
 }
 .rnbWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #ee28ff;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #ee28ff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
 }
 .jazzWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #f7502b;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #f7502b;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
 }
 .classicalWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #fa81bb;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #fa81bb;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
 }
 .frameParent2 {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 22px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 22px;
 }
 .step1NextWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.8);
-    height: 47px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 24px;
-    box-sizing: border-box;
+  flex: 1;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 47px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  box-sizing: border-box;
 }
 .frameWrapper3 {
-    align-self: stretch;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 0px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0px;
 }
 .frameWrapper2 {
-    width: 248px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+  width: 248px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .step1HeaderText {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: flex-start;
-    width:95vw;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: flex-start;
+  width: 95vw;
 }
 /* .frameContainer {
     align-self: stretch;
@@ -355,62 +353,60 @@ text-align: left;
     font-size: 32px;
 } */
 .desktopstep1Genre {
-    width: 100%;
-    position: relative;
-    background-color: #000;
-    height: 1024px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 26px;
-    color: #fff;
-    font-family: Inter;
+  width: 100%;
+  position: relative;
+  background-color: #000;
+  height: 1024px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 26px;
+  color: #fff;
+  font-family: Inter;
 }
-
-
 
 .groupParent {
-    position: absolute;
-    top: 52px;
-    left: 49px;
-    width: 1341px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  position: absolute;
+  top: 52px;
+  left: 49px;
+  width: 1341px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 .step1CreateAMood {
-    flex: 1;
-    position: relative;
+  flex: 1;
+  position: relative;
 }
 .step1CreateAMoodWrapper {
-    flex: 1;
-    border-bottom: 1px solid #ee28ff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 0px 24px;
-    width:95vw;
+  flex: 1;
+  border-bottom: 1px solid #ee28ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 0px 24px;
+  width: 95vw;
 }
 .step1MyMoodsWrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 0px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 0px 24px;
 }
 .step1frameParent {
-    position: relative;
-    /* top: 187px;
+  position: relative;
+  /* top: 187px;
     left: 178px; */
-    border-bottom: 1px solid #fff;
-    box-sizing: border-box;
-    width: 95vw;;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  border-bottom: 1px solid #fff;
+  box-sizing: border-box;
+  width: 95vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 /* .step1Text {
     align-self: stretch;
@@ -419,175 +415,164 @@ text-align: left;
     white-space: pre-wrap;
 } */
 .genres {
-    width: 184px;
-    position: relative;
-    font-size: 20px;
-    text-transform: uppercase;
-    color: #d9d9d9;
-    text-align: right;
-    display: inline-block;
-    height: 23px;
-    flex-shrink: 0;
+  width: 184px;
+  position: relative;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #d9d9d9;
+  text-align: right;
+  display: inline-block;
+  height: 23px;
+  flex-shrink: 0;
 }
 .step13Parent {
-    align-self: stretch;
-    border-bottom: 1px solid #4c4c4c;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4px 0px;
-    font-size: 16px;
+  align-self: stretch;
+  border-bottom: 1px solid #4c4c4c;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0px;
+  font-size: 16px;
 }
-/* .weHaveJustThePlaylistToFParent {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 24px;
-} */
 .findYourPreferred {
-    flex: 1;
-    position: relative;
-    line-height: 125%;
+  flex: 1;
+  position: relative;
+  line-height: 125%;
+  padding: 1rem 0rem 0rem 0rem;
+  text-align: left;
+  align-self: stretch;
+  display: flex;
 }
-.findYourPreferredGenreWrapper {
-    align-self: stretch;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 12px 0px 0px;
-}
+
 .frameWrapper {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 .findYourGenre {
-    position: relative;
+  position: relative;
 }
 
 .search {
-    border-radius: 4px;
-    background-color: rgba(76, 76, 76, 0.2);
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 8px;
+  border-radius: 4px;
+  background-color: rgba(76, 76, 76, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px;
 }
 .findYourGenreParent {
-    align-self: stretch;
-    border-radius: 4px 4px 0px 0px;
-    background-color: rgba(76, 76, 76, 0.4);
-    border-bottom: 1px solid #e1ff28;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px;
+  align-self: stretch;
+  border-radius: 4px 4px 0px 0px;
+  background-color: rgba(76, 76, 76, 0.4);
+  border-bottom: 1px solid #e1ff28;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
 }
 .frameWrapper1 {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    font-size: 16px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 16px;
 }
 .frameDiv {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 43px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 43px;
 }
 .orChooseFromTheOptionsBelWrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 10px;
-    text-align: left;
-    font-size: 20px;
-    color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  text-align: left;
+  font-size: 20px;
+  color: #fff;
 }
 .pop {
-    width: 96px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 29px;
-    flex-shrink: 0;
+  width: 96px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 29px;
+  flex-shrink: 0;
 }
 .popWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #e1ff28;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #e1ff28;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
 }
 .indieWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #fff;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
 }
 .step1FrameParent4 {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 17px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 17px;
 }
 .hipHopWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #361e9b;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #361e9b;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
 }
 .alternativeWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #26c485;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
-    color: #000;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #26c485;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  color: #000;
 }
 .frameParent5 {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 17px;
-    color: #fff;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 17px;
+  color: #fff;
 }
 /* .frameParent3 {
     align-self: stretch;
@@ -598,132 +583,129 @@ text-align: left;
     gap: 22px;
 } */
 .rockWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #29b6f6;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #29b6f6;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
 }
 .rnbWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #ee28ff;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #ee28ff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
 }
 .jazzWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #f7502b;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #f7502b;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
 }
 .classicalWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: #fa81bb;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 18px;
+  flex: 1;
+  border-radius: 4px;
+  background-color: #fa81bb;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
 }
 .innerBottomRightBlock {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 22px;
-    width:95vw;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 22px;
+  width: 95vw;
 }
 .nextWrapper {
-    flex: 1;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.8);
-    height: 47px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 24px;
-    box-sizing: border-box;
+  flex: 1;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 47px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  box-sizing: border-box;
 }
 .frameWrapper3 {
-    align-self: stretch;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 0px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0px;
 }
 .frameWrapper2 {
-    /* width: 248px; */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+  /* width: 248px; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 .bottomRightBlock {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 49px;
-    text-align: center;
-    font-size: 14px;
-    color: #000;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 49px;
+  text-align: center;
+  font-size: 14px;
+  color: #000;
 }
 .frameContainerB {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 24px 0px 0px;
-    gap: 70px;
-    font-size: 20px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 0px 0px;
+  gap: 70px;
+  font-size: 20px;
 }
 .step1frameGroup {
-    position: relative;
-    /* top: 400px; */
-    /* left: 178px; */
-    width: 95vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 22px;
-    text-align: left;
-    font-size: 32px;
+  position: relative;
+  /* top: 400px; */
+  /* left: 178px; */
+  width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  text-align: left;
+  font-size: 32px;
 }
-
 
 .step1NotAtAlll {
-    position: relative;
-    font-size: 1rem;
-    color: white;
+  position: relative;
+  font-size: 1rem;
+  color: white;
 }
 
-
-
 .desktopstep1Genre {
-    /* width: 100%;
+  /* width: 100%;
     position: relative;
     background-color: #000;
     height: 1024px;
@@ -733,18 +715,16 @@ text-align: left;
     color: #fff;
     font-family: Inter; */
 
-
-      
-    position: relative;
-    background-color: #000;
-    margin-left:1rem;
-    margin-right:1rem;
-    /* overflow: hidden; */
-    text-align: center;
-    align-content: top;
-    justify-content: center;
-   height:1800px;
-    color: #fff;
-    font-family: Inter;
-    width:95vw;
+  position: relative;
+  background-color: #000;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  /* overflow: hidden; */
+  text-align: center;
+  align-content: top;
+  justify-content: center;
+  height: 1800px;
+  color: #fff;
+  font-family: Inter;
+  width: 95vw;
 }
