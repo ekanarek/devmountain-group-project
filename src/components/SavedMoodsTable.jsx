@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DeleteButton from "./DeleteButton.jsx";
+import { useToken } from "../contexts/TokenSliderContext.jsx";
 
-export default function SavedMoodsTable({ userId }) {
+export default function SavedMoodsTable() {
+  const { userId } = useToken();
   const [moods, setMoods] = useState([]);
 
   //Fetch the moods for the logged-in user
@@ -10,6 +12,7 @@ export default function SavedMoodsTable({ userId }) {
     const fetchMoods = async () => {
       try {
         const response = await axios.get(`/api/moods/${userId}`);
+        console.log(response.data);
         setMoods(response.data);
       } catch (error) {
         console.error("Error fetching moods: ", error);
@@ -39,7 +42,10 @@ export default function SavedMoodsTable({ userId }) {
           moods.map((mood) => (
             <tr key={mood.mood_id}>
               <td>
-                <DeleteButton moodId={mood.mood_id} onDelete={handleDeleteMood} />
+                <DeleteButton
+                  moodId={mood.mood_id}
+                  onDelete={handleDeleteMood}
+                />
               </td>
               <td>{new Date(mood.createdAt).toLocaleDateString()}</td>
               <td>{mood.name}</td>

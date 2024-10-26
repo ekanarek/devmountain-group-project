@@ -1,21 +1,29 @@
+import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useToken } from "../contexts/TokenContext";
-import SavePlaylistButton from "../components/SavePlaylistButton";
+import { useToken } from "../contexts/TokenSliderContext";
+import MoodNameInput from "../components/MoodNameInput";
+import { useNavigate } from "react-router-dom";
 
 export default function ResultsPage() {
-  const { token, setToken } = useToken();
+  const navigate = useNavigate();
+
+  const { token, genre, energyValue, instValue, hapValue, moodName } =
+    useToken();
+
   const [user, setUser] = useState({ userId: "", displayName: "" });
+
   const [results, setResults] = useState({
     tracks: [{ id: 1, name: "Loading", artists: [{ name: "Please wait" }] }],
   });
 
   // THIS WILL BE USER INPUT
   const moodInput = {
-    genre: "classical",
-    energy: 0,
-    instrumentalness: 0,
-    happiness: 0,
+    genre: genre,
+    energy: energyValue / 10,
+    instrumentalness: instValue / 10,
+    happiness: hapValue / 10,
+    name: moodName,
   };
 
   useEffect(() => {
@@ -35,7 +43,7 @@ export default function ResultsPage() {
           },
         }
       );
-      //console.log(res.data);
+      console.log(moodInput);
       setResults(res.data);
     };
     fetchRecs(moodInput);
@@ -59,14 +67,16 @@ export default function ResultsPage() {
     getUserId();
   }, []);
 
-  const handleNewPlaylist = () => {
+  const handleNewPlaylist = (e) => {
+    e.preventDefault();
+
     const addPlaylist = async () => {
       try {
         const res = await axios.post(
           `https://api.spotify.com/v1/users/${user.userId}/playlists`,
           {
-            name: "New MoodMaestro Mood",
-            description: "description here",
+            name: moodName,
+            description: "Description here",
             public: false,
           },
           {
@@ -93,26 +103,25 @@ export default function ResultsPage() {
               }
             );
             if (res.data.snapshot_id) {
-              alert("Success! Playlist added.");
+              alert("Success! Playlist added to Spotify.");
             }
           };
           addSongs();
-          const updatePlaylistName = async () => {
-            const res = await axios.put(
-              `https://api.spotify.com/v1/playlists/${playlistId}`,
-              {
-                name: "Fun times",
-                description: "Updated playlist description",
-              },
-              {
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                  "Content-Type": "application/json",
-                },
-              }
-            );
-          };
-          updatePlaylistName();
+          // const updatePlaylistName = async () => {
+          //   const res = await axios.put(
+          //     `https://api.spotify.com/v1/playlists/${playlistId}`,
+          //     {
+          //       name: moodName,
+          //     },
+          //     {
+          //       headers: {
+          //         Authorization: `Bearer ${token}`,
+          //         "Content-Type": "application/json",
+          //       },
+          //     }
+          //   );
+          // };
+          // updatePlaylistName();
         }
       } catch (error) {
         console.error(
@@ -124,24 +133,26 @@ export default function ResultsPage() {
     addPlaylist();
 
     const addUserToDB = async () => {
-      const res = await axios.post("/add_user", { user: user });
+      const res = await axios.post("/api/add_user", { user: user });
       console.log(res.status);
     };
     addUserToDB();
 
     const addMoodtoDB = async () => {
-      const res = await axios.post("/add_mood", {
+      const res = await axios.post("/api/add_mood", {
         userId: user.userId,
         mood: moodInput,
       });
       console.log(res.status);
     };
     addMoodtoDB();
+
+    navigate("/moods");
   };
 
   const songs = results.tracks.map(({ id, name, artists }) => {
     return (
-      <li key={id}>
+      <li className="song" key={id}>
         {name}
         <br />
         {artists[0].name}
@@ -151,10 +162,17 @@ export default function ResultsPage() {
     );
   });
 
+  // works for now, but would love to avoid these errors
+  if (!token) {
+    useEffect(() => {
+      navigate("/");
+    }, []);
+  }
+
   return (
     <>
       <ul>{songs}</ul>
-      <SavePlaylistButton onClick={handleNewPlaylist} />
+      <MoodNameInput onSubmit={handleNewPlaylist} />
     </>
   );
 }

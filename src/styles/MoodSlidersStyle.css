@@ -1,0 +1,35 @@
+.mood-slider {
+  /* Centering the slider and giving some space */
+  display: flex;
+  justify-content: center;
+  margin: 20px 0rem;
+}
+
+.slider {
+  -webkit-appearance: none; /* Remove default appearance in WebKit browsers */
+  appearance: none; /* Remove default appearance in other browsers */
+  width: 100%; /* Full width */
+  height: 2px; /* Thinner line */
+  background: #e1ff28; /* Color of the slider */
+  border-radius: 5px; /* Rounded corners */
+  outline: none; /* Remove focus outline */
+}
+
+/* Style the thumb (the draggable part) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default appearance in WebKit */
+  appearance: none; /* Remove default appearance in other browsers */
+  width: 20px; /* Thumb width */
+  height: 20px; /* Thumb height */
+  border-radius: 50%; /* Make it circular */
+  background: #e1ff28; /* Color of the thumb */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 20px; /* Thumb width */
+  height: 20px; /* Thumb height */
+  border-radius: 50%; /* Make it circular */
+  background: #e1ff28; /* Color of the thumb */
+  cursor: pointer; /* Pointer cursor on hover */
+}
