@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import GenreButton from "../components/GenreButton";
+import RedirectButton from "../components/RedirectButton";
 import Header from "../components/Header";
 import { useToken } from "../contexts/TokenSliderContext";
 import { useNavigate } from "react-router-dom";
@@ -74,14 +75,16 @@ export default function GenrePage() {
         <Header height="42rem" />
         <img className="step1VectorIcon" alt="" src="/src/assets/profile.svg" />
       </div>
-      {/* <div className="step1frameParent">
+      <div className="step1frameParent">
         <div className="step1CreateAMoodWrapper">
           <b className="step1CreateAMood">Create a mood</b>
         </div>
         <div className="step1MyMoodsWrapper">
-          <div className="step1CreateAMood">My moods</div>
+          <div className="step1CreateAMood">
+            <RedirectButton routePath={"/moods"} buttonText={"My moods"} />
+          </div>
         </div>
-      </div> */}
+      </div>
 
       <div className="frameContainerB">
         <div className="step1Text">

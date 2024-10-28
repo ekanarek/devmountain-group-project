@@ -2,8 +2,10 @@ import SavedMoodsTable from "../components/SavedMoodsTable.jsx";
 import RedirectButton from "../components/RedirectButton.jsx";
 import Header from "../components/Header.jsx";
 import "../styles/MoodsPageStyles.css";
+import { useToken } from "../contexts/TokenSliderContext.jsx";
 
 export default function MoodsPage() {
+  const { token } = useToken();
   //   return (
   //     <>
   //       <h1>Saved Moods</h1>
@@ -25,7 +27,12 @@ export default function MoodsPage() {
       </div>
       <div className="savedFrameParent">
         <div className="savedCreateAMoodWrapper">
-          <div className="resultsCreateAMood">Create a mood</div>
+          <div className="resultsCreateAMood">
+            <RedirectButton
+              routePath={`/genre?access_token=${token}`}
+              buttonText={"Create a mood"}
+            />
+          </div>
         </div>
         <div className="savedMyMoodsWrapper">
           <b>My moods</b>

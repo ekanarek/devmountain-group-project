@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useToken } from "../contexts/TokenSliderContext";
 import MoodNameInput from "../components/MoodNameInput";
-import SavePlaylistButton from "../components/SavePlaylistButton";
+import RedirectButton from "../components/RedirectButton";
 import Header from "../components/Header";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../styles/ResultsPageStyles.css";
@@ -24,8 +24,7 @@ export default function ResultsPage() {
     tracks: [{ id: 1, name: "Loading", artists: [{ name: "Please wait" }] }],
   });
 
-  // THIS WILL BE USER INPUT
-  const moodInput = {
+  const moodInput = savedParameters || {
     genre: genre,
     energy: energyValue / 10,
     instrumentalness: instValue / 10,
@@ -204,7 +203,9 @@ export default function ResultsPage() {
           <b className="resultsCreateAMood">Create a mood</b>
         </div>
         <div className="resultsMyMoodsWrapper">
-          <div className="resultsCreateAMood">My moods</div>
+          <div className="resultsCreateAMood">
+            <RedirectButton routePath={"/moods"} buttonText={"My moods"} />
+          </div>
         </div>
       </div>
 

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import FetchRecsButton from "../components/FetchRecsButton";
 import { useToken } from "../contexts/TokenSliderContext";
 import MoodSlider from "../components/MoodSlider";
+import RedirectButton from "../components/RedirectButton";
 import "../styles/SlidersPageStyles.css";
 import Header from "../components/Header";
 
@@ -50,14 +51,16 @@ export default function SlidersPage() {
         <img className="vectorIcon" alt="" src="/src/assets/profile.svg" />
       </div>
 
-      {/* <div className="frameParent">
+      <div className="frameParent">
         <div className="createAMoodWrapper">
           <b className="createAMood">Create a mood</b>
         </div>
         <div className="myMoodsWrapper">
-          <div className="createAMood">My moods</div>
+          <div className="createAMood">
+            <RedirectButton routePath={"/moods"} buttonText={"My moods"} />
+          </div>
         </div>
-      </div> */}
+      </div>
 
       <div className="frameContainer">
         <div className="weHaveJust">
@@ -134,12 +137,12 @@ export default function SlidersPage() {
                   </div>
                   <div className="notAtAlllParent">
                     <div className="notAtAlll">
-                      <p className="just">just</p>
-                      <p className="just">instruments</p>
+                      <p className="just">very</p>
+                      <p className="just">sad</p>
                     </div>
                     <div className="notAtAlll">
-                      <p className="just">I want to</p>
-                      <p className="just">sing along</p>
+                      <p className="just">omg</p>
+                      <p className="just">so happy</p>
                     </div>
                   </div>
                 </div>
