@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import DeleteButton from "./DeleteButton.jsx";
 import { useToken } from "../contexts/TokenSliderContext.jsx";
 
 export default function SavedMoodsTable() {
   const { userId } = useToken();
   const [moods, setMoods] = useState([]);
+  const navigate = useNavigate();
 
   //Fetch the moods for the logged-in user
   useEffect(() => {
@@ -27,6 +29,10 @@ export default function SavedMoodsTable() {
     );
   };
 
+  const handleRedirect = (mood) => {
+    navigate("/results", { state: { parameters: mood.parameters } })
+  }
+
   return (
     <table>
       <thead>
@@ -34,7 +40,7 @@ export default function SavedMoodsTable() {
           <th className="delete-cell"></th>
           <th className="date-cell">Created On</th>
           <th className="name-cell">Name</th>
-          <th className="spotify-cell"></th>
+          <th className="redirect-cell"></th>
         </tr>
       </thead>
       <tbody>
@@ -50,7 +56,7 @@ export default function SavedMoodsTable() {
               <td>{new Date(mood.createdAt).toLocaleDateString()}</td>
               <td>{mood.name}</td>
               <td>
-                <button>View on Spotify</button>
+                <button onClick={() => handleRedirect(mood)}>View Mood</button>
               </td>
             </tr>
           ))

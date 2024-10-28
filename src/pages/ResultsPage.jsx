@@ -3,10 +3,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useToken } from "../contexts/TokenSliderContext";
 import MoodNameInput from "../components/MoodNameInput";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function ResultsPage() {
   const navigate = useNavigate();
+  const { state } = useLocation();
+
+  // State passed from SavedMoodsTable, if any
+  const savedParameters = state?.parameters;
 
   const { token, genre, energyValue, instValue, hapValue, moodName } =
     useToken();
@@ -17,8 +21,8 @@ export default function ResultsPage() {
     tracks: [{ id: 1, name: "Loading", artists: [{ name: "Please wait" }] }],
   });
 
-  // THIS WILL BE USER INPUT
-  const moodInput = {
+  // Determine mood input based on whether we're using previously saved or current user input
+  const moodInput = savedParameters || {
     genre: genre,
     energy: energyValue / 10,
     instrumentalness: instValue / 10,
@@ -27,6 +31,7 @@ export default function ResultsPage() {
   };
 
   useEffect(() => {
+    
     const fetchRecs = async (moodInput) => {
       const res = await axios.get(
         "https://api.spotify.com/v1/recommendations",
@@ -46,8 +51,8 @@ export default function ResultsPage() {
       console.log(moodInput);
       setResults(res.data);
     };
-    fetchRecs(moodInput);
-  }, []);
+    fetchRecs();
+  }, [moodInput, navigate]);
 
   // GETTING SONG URIS FOR PLAYLIST
   let songURIs = [];
