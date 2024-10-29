@@ -15,10 +15,10 @@ export default function ResultsPage() {
   // State passed from SavedMoodsTable, if any
   const savedParameters = state?.parameters;
 
-  const { token, genre, energyValue, instValue, hapValue, moodName } =
+  const { token, genre, energyValue, instValue, hapValue, moodName, userId } =
     useToken();
 
-  const [user, setUser] = useState({ userId: "", displayName: "" });
+  const [user, setUser] = useState({ userId: userId, displayName: "" });
 
   const [results, setResults] = useState({
     tracks: [{ id: 1, name: "Loading", artists: [{ name: "Please wait" }] }],
@@ -62,7 +62,7 @@ export default function ResultsPage() {
   });
 
   useEffect(() => {
-    const getUserId = async () => {
+    const getUser = async () => {
       const res = await axios.get("https://api.spotify.com/v1/me", {
         headers: {
           Authorization: "Bearer " + token,
@@ -70,7 +70,7 @@ export default function ResultsPage() {
       });
       setUser({ userId: res.data.id, displayName: res.data.display_name });
     };
-    getUserId();
+    getUser();
   }, []);
 
   const handleNewPlaylist = (e) => {
@@ -113,21 +113,6 @@ export default function ResultsPage() {
             }
           };
           addSongs();
-          // const updatePlaylistName = async () => {
-          //   const res = await axios.put(
-          //     `https://api.spotify.com/v1/playlists/${playlistId}`,
-          //     {
-          //       name: moodName,
-          //     },
-          //     {
-          //       headers: {
-          //         Authorization: `Bearer ${token}`,
-          //         "Content-Type": "application/json",
-          //       },
-          //     }
-          //   );
-          // };
-          // updatePlaylistName();
         }
       } catch (error) {
         console.error(
@@ -138,9 +123,12 @@ export default function ResultsPage() {
     };
     addPlaylist();
 
+    // CHECK HERE
+
     const addUserToDB = async () => {
       const res = await axios.post("/api/add_user", { user: user });
       console.log(res.status);
+      console.log(res.data);
     };
     addUserToDB();
 
@@ -192,11 +180,11 @@ export default function ResultsPage() {
     <div className="desktopResults">
       <div className="resultsSynclogo1Parent">
         <Header height="42rem" />
-        <img
+        {/* <img
           className="resultsStep1VectorIcon"
           alt=""
           src="/src/assets/profile.svg"
-        />
+        /> */}
       </div>
       <div className="resultsFrameParent">
         <div className="resultsCreateAMoodWrapper">

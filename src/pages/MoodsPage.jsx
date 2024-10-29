@@ -19,23 +19,21 @@ export default function MoodsPage() {
     <div className="desktopSavedmoods">
       <div className="savedSynclogo1Parent">
         <Header height="42rem" />
-        <img
+        {/* <img
           className="savedStep1VectorIcon"
           alt=""
           src="/src/assets/profile.svg"
-        />
+        /> */}
       </div>
       <div className="savedFrameParent">
         <div className="savedCreateAMoodWrapper">
-          <div className="resultsCreateAMood">
-            <RedirectButton
-              routePath={`/genre?access_token=${token}`}
-              buttonText={"Create a mood"}
-            />
-          </div>
+          <RedirectButton
+            routePath={`/genre?access_token=${token}`}
+            buttonText={"Create a mood"}
+          />
         </div>
         <div className="savedMyMoodsWrapper">
-          <b>My moods</b>
+          <b className="myMoods">My moods</b>
         </div>
       </div>
       <div className="savedMoodPadding">

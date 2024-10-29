@@ -73,7 +73,7 @@ export default function GenrePage() {
     <div className="desktopstep1Genre">
       <div className="step1Synclogo1Parent">
         <Header height="42rem" />
-        <img className="step1VectorIcon" alt="" src="/src/assets/profile.svg" />
+        {/* <img className="step1VectorIcon" alt="" src="/src/assets/profile.svg" /> */}
       </div>
       <div className="step1frameParent">
         <div className="step1CreateAMoodWrapper">
@@ -97,7 +97,7 @@ export default function GenrePage() {
       </div>
       <div className="step1frameGroup">
         <div className="findYourPreferred">
-          <b>{`Find your preferred genre `}</b>
+          <b>{`Pick your preferred genre `}</b>
         </div>
 
         <div className="bottomRightBlock">
@@ -167,6 +167,7 @@ export default function GenrePage() {
             </div>
           </div>
           <div className="frameWrapper2">
+            <h4 style={{ color: "white", margin: "0" }}>Selected genre:</h4>
             <h2>{genre}</h2>
             <div className="frameWrapper3">
               <button className="step1NextWrapper" onClick={handleNext}>

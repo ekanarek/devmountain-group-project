@@ -48,7 +48,7 @@ export default function SlidersPage() {
     <div className="desktopStep2sliders">
       <div className="synclogo1Parent">
         <Header height="42rem" />
-        <img className="vectorIcon" alt="" src="/src/assets/profile.svg" />
+        {/* <img className="vectorIcon" alt="" src="/src/assets/profile.svg" /> */}
       </div>
 
       <div className="frameParent">
@@ -56,9 +56,7 @@ export default function SlidersPage() {
           <b className="createAMood">Create a mood</b>
         </div>
         <div className="myMoodsWrapper">
-          <div className="createAMood">
-            <RedirectButton routePath={"/moods"} buttonText={"My moods"} />
-          </div>
+          <RedirectButton routePath={"/moods"} buttonText={"My moods"} />
         </div>
       </div>
 
@@ -87,7 +85,7 @@ export default function SlidersPage() {
                   </div>
                 </>
                 <div className="notAtAlllParent">
-                  <div className="notAtAlll">not at all</div>
+                  <div className="notAtAlll">none at all</div>
                   <div className="notAtAlll">I want to dance!</div>
                 </div>
               </div>
@@ -96,7 +94,7 @@ export default function SlidersPage() {
               <div className="frameContainer">
                 <div className="selectYourEnergyLevelWrapper">
                   <div className="selectYourEnergy">
-                    Select your music balance
+                    Select your instrumentalness
                   </div>
                 </div>
                 <div className="frameParent3">
@@ -149,9 +147,9 @@ export default function SlidersPage() {
 
                 <div className="frameWrapper1">
                   <div className="frameParent10">
-                    <div className="backWrapper">
+                    {/* <div className="backWrapper">
                       <b className="notAtAlll">Back</b>
-                    </div>
+                    </div> */}
                     <FetchRecsButton onClick={handleFetch} />
                   </div>
                 </div>

@@ -8,5 +8,18 @@ export default function RedirectButton({ routePath, buttonText }) {
     navigate(routePath);
   };
 
-  return <button onClick={handleRedirect}>{buttonText}</button>;
+  return (
+    <button
+      style={{
+        border: "transparent",
+        background: "transparent",
+        cursor: "pointer",
+        color: "#ffffff",
+        fontSize: "16px",
+      }}
+      onClick={handleRedirect}
+    >
+      {buttonText}
+    </button>
+  );
 }

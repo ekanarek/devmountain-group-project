@@ -706,7 +706,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 22px;
+  gap: 4px;
   text-align: left;
   font-size: 32px;
 }
