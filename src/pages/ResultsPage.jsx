@@ -109,7 +109,9 @@ export default function ResultsPage() {
               }
             );
             if (res.data.snapshot_id) {
-              alert("Success! Playlist added to Spotify.");
+              alert(
+                "Success! Playlist added. Open Spotify to view your new mood playlist."
+              );
             }
           };
           addSongs();

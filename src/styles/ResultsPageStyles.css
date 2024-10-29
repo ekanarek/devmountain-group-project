@@ -149,7 +149,7 @@
 .saveMyMoodWrapper {
   width: 250px;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: #ffffffcc;
   height: 47px;
   overflow: hidden;
   flex-shrink: 0;
@@ -165,6 +165,7 @@
   font-family: "Inter", sans-serif;
   font-weight: bold;
   margin-top: 1rem;
+  margin-bottom: 40px;
 }
 .frameParent5 {
   align-self: stretch;
