@@ -15,10 +15,10 @@ export default function ResultsPage() {
   // State passed from SavedMoodsTable, if any
   const savedParameters = state?.parameters;
 
-  const { token, genre, energyValue, instValue, hapValue, moodName, userId } =
+  const { token, genre, energyValue, instValue, hapValue, moodName } =
     useToken();
 
-  const [user, setUser] = useState({ userId: userId, displayName: "" });
+  const [user, setUser] = useState({ userId: "", displayName: "" });
 
   const [results, setResults] = useState({
     tracks: [{ id: 1, name: "Loading", artists: [{ name: "Please wait" }] }],

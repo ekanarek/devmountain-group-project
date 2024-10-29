@@ -268,7 +268,7 @@
   font-family: Inter;
   font-weight: bold;
 }
-.frameWrapper1.frameParent10 {
+.frameParent10 {
   align-self: stretch;
   display: flex;
   flex-direction: row;
@@ -285,7 +285,7 @@
   justify-content: flex-start;
   text-align: center;
   font-size: 1rem;
-  width: 92vw;
+  width: 21vw;
   margin-bottom: 40px;
 }
 .frameParent6 {
