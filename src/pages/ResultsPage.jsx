@@ -42,7 +42,7 @@ export default function ResultsPage() {
   };
 
   useEffect(() => {
-    const fetchRecs = async () => {
+    const fetchRecs = async (moodInput) => {
       const res = await axios.get(
         "https://api.spotify.com/v1/recommendations",
         {
@@ -61,8 +61,8 @@ export default function ResultsPage() {
       console.log(moodInput);
       setResults(res.data);
     };
-    fetchRecs();
-  }, [moodInput, navigate]);
+    fetchRecs(moodInput);
+  }, []);
 
   // GETTING SONG URIS FOR PLAYLIST
   let songURIs = [];
