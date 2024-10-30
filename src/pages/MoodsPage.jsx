@@ -4,6 +4,7 @@ import Header from "../components/Header.jsx";
 import "../styles/MoodsPageStyles.css";
 import { useToken } from "../contexts/TokenSliderContext.jsx";
 
+
 export default function MoodsPage() {
   const { token } = useToken();
 
@@ -35,5 +36,6 @@ export default function MoodsPage() {
         <SavedMoodsTable />
       </div>
     </div>
+
   );
 }

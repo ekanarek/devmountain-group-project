@@ -43,6 +43,7 @@ export default function SavedMoodsTable() {
           <th className="name-cell">Name</th>
           <th className="redirect-cell"></th>
         </tr> */}
+
       </thead>
       <tbody>
         {Array.isArray(moods) && moods.length > 0 ? (
@@ -80,6 +81,7 @@ export default function SavedMoodsTable() {
                 >
                   View Mood
                 </button>
+
               </td>
             </tr>
           ))
