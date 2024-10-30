@@ -24,6 +24,10 @@ export default function HomePage() {
 
           <div className="brandStatement">
             Give us your mood and we’ll give you some toons ;P
+            {/* Build custom playlists based on how you're feeling.
+            <br />
+            Just log in to your Spotify account, select from popular genres, set
+            your mood, and we’ll generate a playlist tailored just for you! */}
           </div>
         </div>
         <div className="logoWithText">
