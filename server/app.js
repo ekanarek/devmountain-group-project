@@ -81,10 +81,8 @@ app.post("/api/add_user", async (req, res) => {
       spotify_id: user.userId,
       display_name: user.displayName,
     });
-    res.status(200).send("Success");
-  } else {
-    res.status(302).send("User already found");
   }
+  res.json({ userId: user.userId });
 });
 
 app.post("/api/add_mood", async (req, res) => {
@@ -128,7 +126,6 @@ app.get("/api/mood/:moodId", async (req, res) => {
     console.error("Error retrieving mood: ", error);
     res.status(500).send("Could not retrieve mood");
   }
-})
 
 app.delete("/api/moods/:moodId", async (req, res) => {
   const { moodId } = req.params;

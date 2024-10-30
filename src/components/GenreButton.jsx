@@ -1,12 +1,22 @@
-export default function GenreButton({ genre, onClick }) {
+import { useState } from "react";
+import { useToken } from "../contexts/TokenSliderContext";
+
+export default function GenreButton({ genreName, color, onClick }) {
+  const { genre } = useToken();
+  // const [hasBorder, setHasBorder] = useState(false);
+
   return (
-    <div style={{ paddingTop: "12px" }}>
-      <button
-        style={{ width: "300px", justifyContent: "center" }}
-        onClick={() => onClick(genre)}
-      >
-        {genre.toUpperCase()}
-      </button>
-    </div>
+    <button
+      style={{
+        backgroundColor: color,
+        // outline: hasBorder ? "5px solid #a9a9a9" : "none",
+      }}
+      className="genreWrapper"
+      onClick={() => {
+        onClick(genreName);
+      }}
+    >
+      {genreName}
+    </button>
   );
 }

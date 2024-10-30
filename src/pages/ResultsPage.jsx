@@ -3,7 +3,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useToken } from "../contexts/TokenSliderContext";
 import MoodNameInput from "../components/MoodNameInput";
+import RedirectButton from "../components/RedirectButton";
+import Header from "../components/Header";
 import { useNavigate, useLocation } from "react-router-dom";
+import "../styles/ResultsPageStyles.css";
+
 
 export default function ResultsPage() {
   const navigate = useNavigate();
@@ -21,7 +25,9 @@ export default function ResultsPage() {
     tracks: [{ id: 1, name: "Loading", artists: [{ name: "Please wait" }] }],
   });
 
+  
   // Determine mood input based on whether we're using previously saved or current user input
+
   const moodInput = savedParameters || {
     genre: genre,
     energy: energyValue / 10,
@@ -61,7 +67,7 @@ export default function ResultsPage() {
   });
 
   useEffect(() => {
-    const getUserId = async () => {
+    const getUser = async () => {
       const res = await axios.get("https://api.spotify.com/v1/me", {
         headers: {
           Authorization: "Bearer " + token,
@@ -69,7 +75,7 @@ export default function ResultsPage() {
       });
       setUser({ userId: res.data.id, displayName: res.data.display_name });
     };
-    getUserId();
+    getUser();
   }, []);
 
   const handleNewPlaylist = (e) => {
@@ -108,25 +114,12 @@ export default function ResultsPage() {
               }
             );
             if (res.data.snapshot_id) {
-              alert("Success! Playlist added to Spotify.");
+              alert(
+                "Success! Playlist added. Open Spotify to view your new mood playlist."
+              );
             }
           };
           addSongs();
-          // const updatePlaylistName = async () => {
-          //   const res = await axios.put(
-          //     `https://api.spotify.com/v1/playlists/${playlistId}`,
-          //     {
-          //       name: moodName,
-          //     },
-          //     {
-          //       headers: {
-          //         Authorization: `Bearer ${token}`,
-          //         "Content-Type": "application/json",
-          //       },
-          //     }
-          //   );
-          // };
-          // updatePlaylistName();
         }
       } catch (error) {
         console.error(
@@ -137,9 +130,12 @@ export default function ResultsPage() {
     };
     addPlaylist();
 
+    // CHECK HERE
+
     const addUserToDB = async () => {
       const res = await axios.post("/api/add_user", { user: user });
       console.log(res.status);
+      console.log(res.data);
     };
     addUserToDB();
 
@@ -157,13 +153,18 @@ export default function ResultsPage() {
 
   const songs = results.tracks.map(({ id, name, artists }) => {
     return (
-      <li className="song" key={id}>
-        {name}
-        <br />
-        {artists[0].name}
-        <br />
-        <br />
-      </li>
+      // <li className="song" key={id}>
+      //   {name}
+      //   <br />
+      //   {artists[0].name}
+      //   <br />
+      //   <br />
+      // </li>
+
+      <div className="song" key={id}>
+        <div>{name}</div>
+        <b>{artists[0].name}</b>
+      </div>
     );
   });
 
@@ -174,10 +175,99 @@ export default function ResultsPage() {
     }, []);
   }
 
+  //   return (
+  //     <>
+  //       <ul>{songs}</ul>
+  //       <MoodNameInput onSubmit={handleNewPlaylist} />
+  //     </>
+  //   );
+  // }
+
   return (
-    <>
-      <ul>{songs}</ul>
-      <MoodNameInput onSubmit={handleNewPlaylist} />
-    </>
+    <div className="desktopResults">
+      <div className="resultsSynclogo1Parent">
+        <Header height="42rem" />
+        {/* <img
+          className="resultsStep1VectorIcon"
+          alt=""
+          src="/src/assets/profile.svg"
+        /> */}
+      </div>
+      <div className="resultsFrameParent">
+        <div className="resultsCreateAMoodWrapper">
+          <b className="resultsCreateAMood">Create a mood</b>
+        </div>
+        <div className="resultsMyMoodsWrapper">
+          <div className="resultsCreateAMood">
+            <RedirectButton routePath={"/moods"} buttonText={"My moods"} />
+          </div>
+        </div>
+      </div>
+
+      <div className="resultsFrameWrapper">
+        <b className="ResultsSaveYourMood">Save your mood playlist</b>
+      </div>
+
+      <div className="step33Parent">
+        <div className="nameYourMood">Step3/3</div>
+        <div className="results">RESULTS</div>
+      </div>
+
+      {/* <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div>
+
+      <div className="song">
+        <b>Band</b>
+        <div>Song</div>
+      </div> */}
+
+      <div className="resultsInputAndButton">
+        <div className="songResults">{songs}</div>
+
+        <MoodNameInput onSubmit={handleNewPlaylist} />
+      </div>
+    </div>
   );
 }

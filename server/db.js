@@ -75,6 +75,11 @@ const Mood = sequelize.define("mood", {
 // User.hasMany(Mood, { foreignKey: "user_id" });
 // Mood.belongsTo(User, { foreignKey: "user_id" });
 
+User.hasMany(Mood, {
+  foreignKey: "user_id",
+  sourceKey: "spotify_id",
+});
+
 Mood.belongsTo(User, {
   foreignKey: "user_id",
   targetKey: "spotify_id",

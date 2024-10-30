@@ -1,0 +1,213 @@
+.resultsSynclogo1Icon {
+  width: 130px;
+  position: relative;
+  height: 61px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.resultsStep1VectorIcon {
+  width: 42px;
+  position: relative;
+  height: 42px;
+}
+.resultsSynclogo1Parent {
+  position: relative;
+  /* top: 52px; */
+  margin-top: 4rem;
+  margin: 1.25rem 30px 18px 29px;
+  /* width: 100vw; */
+  padding: 1rem 0 1rem 0;
+  /* left: 49px;
+    width: 1341px; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* width: 90vw; */
+  align-self: stretch;
+}
+.resultsCreateAMood {
+  flex: 1;
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+}
+.resultsCreateAMoodWrapper {
+  flex: 1;
+  border-bottom: 1px solid #ee28ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 0px 24px;
+  width: 95vw;
+}
+.resultsMyMoodsWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 0px 24px;
+}
+.resultsFrameParent {
+  border-bottom: 1px solid #fff;
+  box-sizing: border-box;
+  width: 95vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 29px;
+}
+.ResultsSaveYourMood {
+  align-self: stretch;
+  position: relative;
+  line-height: 125%;
+  padding: 1rem;
+}
+.resultsFrameWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.results {
+  width: 184px;
+  position: relative;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #d9d9d9;
+  text-align: right;
+  display: inline-block;
+  height: 23px;
+  flex-shrink: 0;
+}
+.step33Parent {
+  align-self: stretch;
+  border-bottom: 1px solid #4c4c4c;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  font-size: 16px;
+}
+.frameContainer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+}
+.song {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  padding: 1rem 0rem 1rem 0rem;
+  gap: 4px;
+  font-size: 20px;
+  width: 80vw;
+}
+/* .frameWrapper4 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+} */
+.frameParent2 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 18px;
+}
+.nameYourMood {
+  position: relative;
+}
+.nameYourMoodInput {
+  width: 80vw;
+  border-radius: 4px 4px 0px 0px;
+  color: #fff;
+  background-color: rgba(76, 76, 76, 0.4);
+  border-bottom: 1px solid #e1ff28;
+  box-sizing: border-box;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 12px;
+}
+.saveMyMoodWrapper {
+  width: 250px;
+  border-radius: 4px;
+  background-color: #ffffffcc;
+  height: 47px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 14px;
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 40px;
+}
+.frameParent5 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 8px 0px;
+  gap: 32px;
+  font-size: 16px;
+}
+.resultsInputAndButton {
+  align-self: stretch;
+  display: flex;
+  flex: 1;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.inputForm {
+  justify-content: center;
+  align-items: center;
+}
+
+.frameWrapper1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 0px 0px;
+  font-size: 20px;
+}
+
+.desktopResults {
+  width: 100vw;
+  position: relative;
+  background-color: #000;
+  overflow: hidden;
+  font-size: 26px;
+  color: #fff;
+  font-family: Inter;
+}

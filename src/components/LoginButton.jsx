@@ -1,3 +1,10 @@
+import "../assets/spotify.png";
+
 export default function LoginButton({ onClick }) {
-  return <button onClick={onClick}>Login to Spotify</button>;
+  return (
+    <button className="logoBtn" onClick={onClick}>
+      <img src="/src/assets/spotify.png" alt="" />
+      Login to Spotify
+    </button>
+  );
 }
