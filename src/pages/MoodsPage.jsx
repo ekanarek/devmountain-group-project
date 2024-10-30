@@ -6,14 +6,6 @@ import { useToken } from "../contexts/TokenSliderContext.jsx";
 
 export default function MoodsPage() {
   const { token } = useToken();
-  //   return (
-  //     <>
-  //       <h1>Saved Moods</h1>
-  //       <SavedMoodsTable />
-  //       <RedirectButton routePath="/genre" buttonText="New Mood" />
-  //     </>
-  //   );
-  // }
 
   return (
     <div className="desktopSavedmoods">

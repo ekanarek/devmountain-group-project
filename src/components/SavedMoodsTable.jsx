@@ -5,7 +5,7 @@ import DeleteButton from "./DeleteButton.jsx";
 import { useToken } from "../contexts/TokenSliderContext.jsx";
 
 export default function SavedMoodsTable() {
-  const { userId } = useToken();
+  const { userId, moodChanged, setMoodChanged } = useToken();
   const [moods, setMoods] = useState([]);
   const navigate = useNavigate();
 
@@ -16,12 +16,13 @@ export default function SavedMoodsTable() {
         const response = await axios.get(`/api/moods/${userId}`);
         console.log(response.data);
         setMoods(response.data);
+        setMoodChanged(false);
       } catch (error) {
         console.error("Error fetching moods: ", error);
       }
     };
     fetchMoods();
-  }, [userId]);
+  }, [userId, moodChanged]);
 
   const handleDeleteMood = (deletedMoodId) => {
     setMoods((prevMoods) =>

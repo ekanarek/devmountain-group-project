@@ -15,8 +15,15 @@ export default function ResultsPage() {
   // State passed from SavedMoodsTable, if any
   const savedParameters = state?.parameters;
 
-  const { token, genre, energyValue, instValue, hapValue, moodName } =
-    useToken();
+  const {
+    token,
+    genre,
+    energyValue,
+    instValue,
+    hapValue,
+    moodName,
+    setMoodChanged,
+  } = useToken();
 
   const [user, setUser] = useState({ userId: "", displayName: "" });
 
@@ -125,23 +132,31 @@ export default function ResultsPage() {
     };
     addPlaylist();
 
-    // CHECK HERE
-
     const addUserToDB = async () => {
       const res = await axios.post("/api/add_user", { user: user });
       console.log(res.status);
       console.log(res.data);
+      return res.data;
     };
-    addUserToDB();
 
-    const addMoodtoDB = async () => {
+    const addMoodtoDB = async (userId) => {
       const res = await axios.post("/api/add_mood", {
-        userId: user.userId,
+        userId: userId,
         mood: moodInput,
       });
       console.log(res.status);
     };
-    addMoodtoDB();
+
+    const run = async () => {
+      const userData = await addUserToDB();
+      if (userData && userData.userId) {
+        await addMoodtoDB(userData.userId);
+        setMoodChanged(true);
+      } else {
+        console.error("User ID is not available.");
+      }
+    };
+    run();
 
     navigate("/moods");
   };

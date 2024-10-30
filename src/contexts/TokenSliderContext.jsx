@@ -12,6 +12,7 @@ export const TokenProvider = ({ children }) => {
   const [instValue, setInstValue] = useState(5);
   const [hapValue, setHapValue] = useState(5);
   const [moodName, setMoodName] = useState("");
+  const [moodChanged, setMoodChanged] = useState(false);
 
   return (
     <TokenCoxtext.Provider
@@ -30,6 +31,8 @@ export const TokenProvider = ({ children }) => {
         setHapValue,
         moodName,
         setMoodName,
+        moodChanged,
+        setMoodChanged,
       }}
     >
       {children}
