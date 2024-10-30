@@ -126,7 +126,6 @@ app.get("/api/mood/:moodId", async (req, res) => {
     console.error("Error retrieving mood: ", error);
     res.status(500).send("Could not retrieve mood");
   }
-});
 
 app.delete("/api/moods/:moodId", async (req, res) => {
   const { moodId } = req.params;
