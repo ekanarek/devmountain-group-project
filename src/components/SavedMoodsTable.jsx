@@ -3,8 +3,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import DeleteButton from "./DeleteButton.jsx";
 import { useToken } from "../contexts/TokenSliderContext.jsx";
+import ViewSavedMoodsPage from "../pages/ViewSavedMoodPage.jsx";
 
-export default function SavedMoodsTable() {
+export default function SavedMoodsTable({ selectedMood, setSelectedMood }) {
   const { userId, moodChanged, setMoodChanged } = useToken();
   const [moods, setMoods] = useState([]);
   const navigate = useNavigate();
@@ -31,20 +32,21 @@ export default function SavedMoodsTable() {
   };
 
   const handleRedirect = (mood) => {
-    navigate("/results", { state: { parameters: mood.parameters } });
+    setSelectedMood(mood);
   };
+
+  if (selectedMood) {
+    return (
+      <ViewSavedMoodsPage
+        mood={selectedMood}
+        setSelectedMood={setSelectedMood}
+      />
+    );
+  }
 
   return (
     <table>
-      <thead>
-        {/* <tr>
-          <th className="delete-cell"></th>
-          <th className="date-cell">Created On</th>
-          <th className="name-cell">Name</th>
-          <th className="redirect-cell"></th>
-        </tr> */}
-
-      </thead>
+      <thead></thead>
       <tbody>
         {Array.isArray(moods) && moods.length > 0 ? (
           moods.map((mood) => (
@@ -81,7 +83,6 @@ export default function SavedMoodsTable() {
                 >
                   View Mood
                 </button>
-
               </td>
             </tr>
           ))

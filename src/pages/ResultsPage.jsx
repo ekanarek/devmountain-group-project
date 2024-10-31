@@ -31,8 +31,6 @@ export default function ResultsPage() {
     tracks: [{ id: 1, name: "Loading", artists: [{ name: "Please wait" }] }],
   });
 
-  // Determine mood input based on whether we're using previously saved or current user input
-
   const moodInput = savedParameters || {
     genre: genre,
     energy: energyValue / 10,
@@ -42,7 +40,7 @@ export default function ResultsPage() {
   };
 
   useEffect(() => {
-    const fetchRecs = async (moodInput) => {
+    const fetchRecs = async () => {
       const res = await axios.get(
         "https://api.spotify.com/v1/recommendations",
         {
@@ -58,10 +56,9 @@ export default function ResultsPage() {
           },
         }
       );
-      console.log(moodInput);
       setResults(res.data);
     };
-    fetchRecs(moodInput);
+    fetchRecs();
   }, []);
 
   // GETTING SONG URIS FOR PLAYLIST
@@ -165,14 +162,6 @@ export default function ResultsPage() {
 
   const songs = results.tracks.map(({ id, name, artists }) => {
     return (
-      // <li className="song" key={id}>
-      //   {name}
-      //   <br />
-      //   {artists[0].name}
-      //   <br />
-      //   <br />
-      // </li>
-
       <div className="song" key={id}>
         <div>{name}</div>
         <b>{artists[0].name}</b>
@@ -180,30 +169,16 @@ export default function ResultsPage() {
     );
   });
 
-  // works for now, but would love to avoid these errors
   if (!token) {
     useEffect(() => {
       navigate("/");
     }, []);
   }
 
-  //   return (
-  //     <>
-  //       <ul>{songs}</ul>
-  //       <MoodNameInput onSubmit={handleNewPlaylist} />
-  //     </>
-  //   );
-  // }
-
   return (
     <div className="desktopResults">
       <div className="resultsSynclogo1Parent">
         <Header height="42rem" />
-        {/* <img
-          className="resultsStep1VectorIcon"
-          alt=""
-          src="/src/assets/profile.svg"
-        /> */}
       </div>
       <div className="resultsFrameParent">
         <div className="resultsCreateAMoodWrapper">
@@ -224,56 +199,6 @@ export default function ResultsPage() {
         <div className="nameYourMood">Step3/3</div>
         <div className="results">RESULTS</div>
       </div>
-
-      {/* <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div> */}
 
       <div className="resultsInputAndButton">
         <div className="songResults">{songs}</div>

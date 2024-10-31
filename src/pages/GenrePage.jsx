@@ -56,24 +56,10 @@ export default function GenrePage() {
     navigate("/sliders");
   };
 
-  // return (
-  //   <div>
-  //     <h2>What genre are you looking for?</h2>
-  //     <div>
-  //       {genres.map((genre) => (
-  //         <GenreButton key={genre} genre={genre} onClick={handleGenreClick} />
-  //       ))}
-  //     </div>
-  //     <br />
-  //     <button onClick={handleNext}>Next</button>
-  //   </div>
-  // );
-
   return (
     <div className="desktopstep1Genre">
       <div className="step1Synclogo1Parent">
         <Header height="42rem" />
-        {/* <img className="step1VectorIcon" alt="" src="/src/assets/profile.svg" /> */}
       </div>
       <div className="step1frameParent">
         <div className="step1CreateAMoodWrapper">

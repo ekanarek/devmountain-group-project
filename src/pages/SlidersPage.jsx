@@ -15,40 +15,10 @@ export default function SlidersPage() {
     navigate("/results");
   };
 
-  // return (
-  //     <>
-  //       <div className="energySliderContainer">
-  //         <p>How much energy do you have?</p>
-  //         <MoodSlider attribute={"energy"} />
-  //         {energyValue}
-  //       </div>
-  //       <br />
-
-  //       <div className="instSliderContainer">
-  //         <p>How instrumental would you like your music to be?</p>
-  //         <MoodSlider attribute={"inst"} />
-  //         {instValue}
-  //       </div>
-  //       <br />
-
-  //       <div className="hapSliderContainer">
-  //         <p>How happy are you feeling?</p>
-  //         <MoodSlider attribute={"hap"} />
-  //         {hapValue}
-  //       </div>
-  //       <br />
-  //       <br />
-
-  //       <FetchRecsButton onClick={handleFetch} />
-  //     </>
-  //   );
-  // }
-
   return (
     <div className="desktopStep2sliders">
       <div className="synclogo1Parent">
         <Header height="42rem" />
-        {/* <img className="vectorIcon" alt="" src="/src/assets/profile.svg" /> */}
       </div>
 
       <div className="frameParent">
@@ -99,7 +69,6 @@ export default function SlidersPage() {
                 </div>
                 <div className="frameParent3">
                   <div className="groupWrapper">
-                    {/* <img  alt="" src="/src/assets/Group2.svg" />   */}
                     <>
                       <div className="frameChild">
                         <MoodSlider attribute={"inst"} />
@@ -125,7 +94,6 @@ export default function SlidersPage() {
                 </div>
                 <div className="frameParent3">
                   <div className="groupWrapper">
-                    {/* <img  alt="" src="/src/assets/Group2.svg" />   */}
                     <>
                       <div className="frameChild">
                         <MoodSlider attribute={"hap"} />
@@ -147,9 +115,6 @@ export default function SlidersPage() {
 
                 <div className="frameWrapper1">
                   <div className="frameParent10">
-                    {/* <div className="backWrapper">
-                      <b className="notAtAlll">Back</b>
-                    </div> */}
                     <FetchRecsButton onClick={handleFetch} />
                   </div>
                 </div>
