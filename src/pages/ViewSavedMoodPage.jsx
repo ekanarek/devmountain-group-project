@@ -15,7 +15,6 @@ export default function ViewSavedMoodsPage({ mood, setSelectedMood }) {
   const [results, setResults] = useState({
     tracks: [{ id: 1, name: "Loading", artists: [{ name: "Please wait" }] }],
   });
-  console.log(mood);
   const moodInput = mood;
 
   useEffect(() => {

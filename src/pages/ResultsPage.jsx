@@ -143,7 +143,6 @@ export default function ResultsPage() {
         userId: userId,
         mood: moodInput,
       });
-      console.log(res.status);
     };
 
     const run = async () => {
