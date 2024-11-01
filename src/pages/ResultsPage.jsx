@@ -8,7 +8,6 @@ import Header from "../components/Header";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../styles/ResultsPageStyles.css";
 
-
 export default function ResultsPage() {
   const navigate = useNavigate();
   const { state } = useLocation();
@@ -16,17 +15,21 @@ export default function ResultsPage() {
   // State passed from SavedMoodsTable, if any
   const savedParameters = state?.parameters;
 
-  const { token, genre, energyValue, instValue, hapValue, moodName } =
-    useToken();
+  const {
+    token,
+    genre,
+    energyValue,
+    instValue,
+    hapValue,
+    moodName,
+    setMoodChanged,
+  } = useToken();
 
   const [user, setUser] = useState({ userId: "", displayName: "" });
 
   const [results, setResults] = useState({
     tracks: [{ id: 1, name: "Loading", artists: [{ name: "Please wait" }] }],
   });
-
-  
-  // Determine mood input based on whether we're using previously saved or current user input
 
   const moodInput = savedParameters || {
     genre: genre,
@@ -37,8 +40,7 @@ export default function ResultsPage() {
   };
 
   useEffect(() => {
-    
-    const fetchRecs = async (moodInput) => {
+    const fetchRecs = async () => {
       const res = await axios.get(
         "https://api.spotify.com/v1/recommendations",
         {
@@ -54,11 +56,10 @@ export default function ResultsPage() {
           },
         }
       );
-      console.log(moodInput);
       setResults(res.data);
     };
     fetchRecs();
-  }, [moodInput, navigate]);
+  }, []);
 
   // GETTING SONG URIS FOR PLAYLIST
   let songURIs = [];
@@ -130,37 +131,36 @@ export default function ResultsPage() {
     };
     addPlaylist();
 
-    // CHECK HERE
-
     const addUserToDB = async () => {
       const res = await axios.post("/api/add_user", { user: user });
       console.log(res.status);
       console.log(res.data);
+      return res.data;
     };
-    addUserToDB();
 
-    const addMoodtoDB = async () => {
+    const addMoodtoDB = async (userId) => {
       const res = await axios.post("/api/add_mood", {
-        userId: user.userId,
+        userId: userId,
         mood: moodInput,
       });
-      console.log(res.status);
     };
-    addMoodtoDB();
+
+    const run = async () => {
+      const userData = await addUserToDB();
+      if (userData && userData.userId) {
+        await addMoodtoDB(userData.userId);
+        setMoodChanged(true);
+      } else {
+        console.error("User ID is not available.");
+      }
+    };
+    run();
 
     navigate("/moods");
   };
 
   const songs = results.tracks.map(({ id, name, artists }) => {
     return (
-      // <li className="song" key={id}>
-      //   {name}
-      //   <br />
-      //   {artists[0].name}
-      //   <br />
-      //   <br />
-      // </li>
-
       <div className="song" key={id}>
         <div>{name}</div>
         <b>{artists[0].name}</b>
@@ -168,30 +168,16 @@ export default function ResultsPage() {
     );
   });
 
-  // works for now, but would love to avoid these errors
   if (!token) {
     useEffect(() => {
       navigate("/");
     }, []);
   }
 
-  //   return (
-  //     <>
-  //       <ul>{songs}</ul>
-  //       <MoodNameInput onSubmit={handleNewPlaylist} />
-  //     </>
-  //   );
-  // }
-
   return (
     <div className="desktopResults">
       <div className="resultsSynclogo1Parent">
         <Header height="42rem" />
-        {/* <img
-          className="resultsStep1VectorIcon"
-          alt=""
-          src="/src/assets/profile.svg"
-        /> */}
       </div>
       <div className="resultsFrameParent">
         <div className="resultsCreateAMoodWrapper">
@@ -212,56 +198,6 @@ export default function ResultsPage() {
         <div className="nameYourMood">Step3/3</div>
         <div className="results">RESULTS</div>
       </div>
-
-      {/* <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div>
-
-      <div className="song">
-        <b>Band</b>
-        <div>Song</div>
-      </div> */}
 
       <div className="resultsInputAndButton">
         <div className="songResults">{songs}</div>

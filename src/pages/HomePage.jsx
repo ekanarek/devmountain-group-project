@@ -8,12 +8,6 @@ export default function HomePage() {
     window.location = "/login";
   };
 
-  // return (
-  //   <>
-  //     <LoginButton onClick={handleLogin} />
-  //   </>
-  // );
-
   return (
     <div className="desktopLogin">
       <div className="homePageFrameParent">

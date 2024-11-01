@@ -1,0 +1,21 @@
+div .songResults {
+  text-align: left;
+}
+
+.backToMoodsButton {
+  flex: 1;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 47px;
+  width: 250px;
+  margin: 0 0 40px 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-weight: bold;
+}
